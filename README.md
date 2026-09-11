@@ -4,87 +4,47 @@ Primary-source-first reconstruction of Georgia political television advertising.
 
 ## Architecture
 
-The service deliberately separates **research/discovery** from **document processing**:
+The service separates research/discovery from deterministic document processing:
 
-1. A research agent scans FCC OPIF indexes and other primary filing indexes for documents that meet the Georgia political-ad criteria.
-2. The agent writes exact document references to `queue/inbox.jsonl`.
-3. GitHub Actions imports those references into SQLite and downloads **only those specific documents**.
-4. The deterministic processor extracts contract/order/invoice data, reconciles revisions/cancellations, and updates primary-dollar accounting.
-5. The research agent checks FEC, Georgia filings, Meta/Google transparency, announcements, and reputable reporting as an adversarial completeness layer.
-6. Secondary claims are written to `audit/inbox.jsonl`; they never overwrite or supplement primary totals.
-7. Unresolved discrepancies in `public/latest.json` drive the next targeted primary-source scan. Repeat.
-
-The runtime no longer depends on broad FCC facility discovery.
+1. The research agent reads `config/broadcast_targets.json` and scans every listed station in Atlanta, Albany, Augusta, Savannah, Columbus, Macon, and Chattanooga/Northwest Georgia spillover, plus known cable/DBS systems.
+2. Exact document references are written to `queue/inbox.jsonl`.
+3. GitHub Actions imports those references and downloads only those documents.
+4. FCC history filename differences are resolved conservatively using normalized stable tokens/numeric identifiers; ambiguous matches remain retry/failed rather than being guessed.
+5. The processor extracts order/contract data, reconciles revisions/cancellations, and updates primary-dollar accounting.
+6. Raw FEC Schedule E `is_notice=true` records for Georgia are ingested directly so 24- and 48-hour IE notices are captured even when candidate aggregates omit or lag them.
+7. Secondary reporting/platform sources remain completeness checks and are written to `audit/inbox.jsonl`.
+8. Unresolved sponsors are surfaced in `public/latest.json`. The research agent searches ad creative, sponsor primary sources, NAB forms, FEC notices and credible reporting, then writes attributable evidence to `classification/inbox.jsonl`.
+9. Classification evidence is applied deterministically to matching orders. Inconclusive entities stay unresolved.
+10. Remaining discrepancies drive another targeted primary scan. Repeat.
 
 ## Primary document queue
 
-`queue/inbox.jsonl` is append-oriented. Each line is one JSON object. A record must provide either:
+`queue/inbox.jsonl` is append-oriented. An FCC item may provide `folder_id + file_manager_id`, an exact PDF `source_url`, or `entity_id + exact indexed file_name` for conservative FCC-history resolution.
 
-- `folder_id` **and** `file_manager_id` for an FCC OPIF document; or
-- an exact `source_url` for the document PDF.
+Queue states: `queued`, `downloading`, `downloaded`, `reconciled`, `needs_visual_review`, `retry`, `failed`.
 
-Recommended fields:
+## Broadcast universe
 
-```json
-{"source_kind":"fcc","entity_id":"12345","service":"tv","callsign":"WXYZ","dma":"Atlanta","folder_id":"abc","file_manager_id":"def","file_name":"Order Contract.pdf","discovered_at":"2026-09-11T14:00:00-04:00","source_index_url":"https://...","discovery_note":"Political file / 2026 / federal / Senate"}
-```
+`config/broadcast_targets.json` is the minimum station-by-station universe. The research agent must scan each listed station every reporting cycle regardless of known advertiser activity. No market should be called inactive until its station list plus relevant cable/DBS systems have been checked.
 
-Queue states are persisted in SQLite: `queued`, `downloading`, `downloaded`, `reconciled`, `needs_visual_review`, `retry`, `failed`.
+## Invoice safeguards
 
-Re-importing the same queue item is idempotent and does not reset a processed item back to `queued`.
+Reservation accounting and invoice accounting are separate. Contract/order values may come from explicit contract total, order total, net or gross order fields. Invoice accounting accepts only explicit invoice-level labels such as `Invoice Total`, `Total Due`, `Balance Due`, `Amount Due` or `Grand Total`. Per-spot/rate values are never promoted to aired/invoiced totals.
 
-## Secondary audit inbox
+## FEC 24/48-hour audit
 
-`audit/inbox.jsonl` stores public claims and secondary signals separately from primary accounting.
+`src/ga_ads/fec_audit.py` queries OpenFEC Schedule E for Georgia with `is_notice=true`. The processor stores individual IE notice amounts, filer, candidate, support/oppose context, purpose, dates and source PDF as primary audit signals. A repository/Actions secret `FEC_API_KEY` is used when available; otherwise the public `DEMO_KEY` is used.
 
-Example:
+## Evidence-based classification
 
-```json
-{"source_type":"reporting","source_name":"Reuters","source_url":"https://...","observed_at":"2026-09-11","advertiser":"No Going Back PAC","geography":"six states including Georgia","medium":"TV","claimed_amount":24900000,"amount_scope":"multi-state announced bookings","summary":"Reported $24.9m across six states; Georgia allocation unresolved","status":"unresolved"}
-```
+`classification/inbox.jsonl` stores attributable evidence for unresolved sponsors/buys. Required fields are `sponsor`, `alignment`, and `source_url`; recommended fields include support/oppose target, candidate/party, communication title/summary, source type/name, date and confidence.
 
-Secondary amounts are exposed in the discrepancy ledger but **never imported into primary spending totals**.
-
-## Processor triggers
-
-The GitHub Actions workflow runs four times daily as a safety net, can be dispatched manually, and also runs automatically whenever `queue/**` or `audit/**` changes on `main`. The bot's later `public/**` snapshot commit does **not** retrigger the workflow, preventing a publish loop.
-
-Each processor run performs:
-
-```text
-init-db
-import-queue
-import-audit
-process-queue
-weekly
-publish
-cleanup
-```
-
-It does not enumerate facilities or broadly search OPIF.
-
-## Accounting safeguards
-
-- Never infer spend from PDF file size.
-- Prefer explicitly labeled contract/order/net/gross/invoice totals.
-- Preserve original reservation, current revised reservation, and aired/invoiced amount separately.
-- A cancellation sets current reservation to zero through reconciliation logic.
-- Revisions are reconciled to an order key rather than double-counted.
-- Low-confidence or image-only documents are excluded from chart totals and surfaced for review.
-- Secondary sources are completeness tests, not substitutes for primary contracts.
+The parser never infers alignment from the sponsor name alone. `public/latest.json` exposes `unresolved_classification_entities` so the research agent knows what requires targeted searching.
 
 ## Output
 
-`public/latest.json` is the stable handoff. Schema version 2 contains:
+`public/latest.json` schema version 3 contains queue status, weekly primary events, chart-safe amounts, unpriced items, active reservations, unresolved FCC/FEC/secondary audit signals, unresolved sponsor classifications, and exceptions.
 
-- queue status
-- weekly primary order events
-- chart-safe primary amounts
-- unpriced/visual-review records
-- active reservations
-- unresolved secondary audit signals
-- exceptions
+The intended loop is:
 
-The intended loop is therefore:
-
-**agent scans → queue exact documents → processor extracts/reconciles → agent audits secondary sources → agent searches discrepancies → repeat.**
+**systematic station scan → exact-document queue → deterministic extraction/reconciliation → FEC + secondary audit → evidence-based classification → discrepancy search → repeat.**
