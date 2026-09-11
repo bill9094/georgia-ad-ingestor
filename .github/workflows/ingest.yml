@@ -7,6 +7,7 @@ on:
     paths:
       - 'queue/**'
       - 'audit/**'
+      - 'classification/**'
   schedule:
     - cron: '17 1,7,13,19 * * *'
 
@@ -40,10 +41,11 @@ jobs:
           key: ga-ads-sqlite-${{ github.run_id }}
           restore-keys: |
             ga-ads-sqlite-
-      - name: Import queues, process exact documents, and publish snapshot
+      - name: Import queues, FEC notices, classifications, process documents, and publish snapshot
         env:
           PYTHONPATH: ${{ github.workspace }}/src
           GA_ADS_REPROCESS: '1'
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
         run: bash deploy/run_incremental.sh
       - name: Save persistent SQLite state
         uses: actions/cache/save@v4
