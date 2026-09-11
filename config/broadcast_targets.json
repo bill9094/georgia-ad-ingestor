@@ -1,0 +1,19 @@
+{
+  "purpose": "Required station-by-station discovery universe for each weekly scan; resolve current FCC entity IDs from the public-file index and record any additions/changes.",
+  "markets": {
+    "Atlanta": ["WSB-TV","WAGA-TV","WXIA-TV","WANF","WPCH-TV","WATL","WUPA"],
+    "Albany": ["WALB","WFXL"],
+    "Augusta": ["WRDW-TV","WAGT-CD","WJBF","WFXG"],
+    "Savannah": ["WTOC-TV","WSAV-TV","WJCL","WTGS"],
+    "Columbus": ["WRBL","WTVM","WLTZ"],
+    "Macon": ["WMAZ-TV","WGXA","WMGT-TV"],
+    "Chattanooga / NW Georgia spillover": ["WTVC","WRCB-TV","WDEF-TV","WFLI-TV"]
+  },
+  "rules": [
+    "Scan every listed station each reporting cycle, regardless of known advertiser activity.",
+    "Search station political-file indexes for the full reporting window plus a short overlap for late uploads/revisions.",
+    "Queue exact contracts/orders/invoices and material revisions; record NAB/traffic-only filings as presence signals when no priced document is available.",
+    "Do not declare a market inactive until every target station plus known cable/DBS distributors has been checked.",
+    "If a station changes call sign, ownership, or FCC entity ID, update this manifest rather than silently dropping it."
+  ]
+}
