@@ -9,6 +9,7 @@ from .reconcile import upsert_order
 def _v(x,*keys):
     for k in keys:
         if x.get(k) not in (None,''): return x.get(k)
+
 def discover_tv(cfg):
     con=init_db(resolve(cfg,'storage.sqlite_path')); client=FCCClient(cfg['fcc']); rows=client.search_tv_facilities(cfg['fcc'].get('target_state','GA')); n=0
     for x in rows:
@@ -16,12 +17,17 @@ def discover_tv(cfg):
         if not eid: continue
         callsign=_v(x,'callsign','callSign'); dma=_v(x,'dma','market','dmaName'); state=_v(x,'state','stateCode') or 'GA'
         con.execute('''INSERT INTO entities(entity_id,service,callsign,name,state,dma,active,profile_url,rss_url) VALUES(?,?,?,?,?,?,1,?,?) ON CONFLICT(entity_id) DO UPDATE SET callsign=excluded.callsign,name=excluded.name,state=excluded.state,dma=excluded.dma''',(eid,'tv',callsign,_v(x,'name','facilityName'),state,dma,f"{client.base}/tv-profile/{callsign}" if callsign else None,f"{client.base}/tv-profile/{callsign}/rss/" if callsign else None)); n+=1
-    con.commit(); return n
+    con.commit()
+    if n==0:
+        raise RuntimeError('FCC TV facility discovery returned zero usable Georgia entities. Diagnostic: '+json.dumps(client.last_discovery_diagnostic,default=str))
+    return n
+
 def _alignment(cfg,rec):
     s=' '.join(str(rec.get(k) or '') for k in ('advertiser','candidate')).lower()
     if any(k in s for k in cfg.get('classification',{}).get('democratic_keywords',[])): return 'Democratic-aligned'
     if any(k in s for k in cfg.get('classification',{}).get('republican_keywords',[])): return 'Republican-aligned'
     return cfg.get('classification',{}).get('neutral_label','unclear/issue-only')
+
 def ingest(cfg,since,until,entity_ids=None):
     con=init_db(resolve(cfg,'storage.sqlite_path')); client=FCCClient(cfg['fcc']); tmp=Path(resolve(cfg,'storage.temp_pdf_dir')); tmp.mkdir(parents=True,exist_ok=True)
     if entity_ids: entities=con.execute('SELECT * FROM entities WHERE entity_id IN (%s)'%','.join('?'*len(entity_ids)),entity_ids).fetchall()
