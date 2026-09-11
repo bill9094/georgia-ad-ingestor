@@ -1,3 +1,4 @@
 # One JSON object per line. Use only evidence-based classifications for unresolved sponsors/buys.
 # Required: sponsor, alignment, source_url. Recommended: support_oppose, target_candidate, target_party,
 # communication_title, communication_summary, source_type, source_name, observed_at, confidence, notes.
+{"sponsor":"AMER MISSION SUPER PAC","alignment":"Republican-aligned","target_party":"Republican","communication_summary":"Sponsor states that American Mission supports Republican candidates who advance its pro-AI agenda and opposes those who do not.","source_type":"sponsor_primary_source","source_name":"American Mission","source_url":"https://www.americanmission.com/","observed_at":"2026-09-11","confidence":0.98,"notes":"Apply to abbreviated FCC advertiser labels for American Mission; communication-specific support/oppose target should still come from FEC/ad evidence when available."}
