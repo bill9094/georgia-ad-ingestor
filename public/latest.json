@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-11T16:09:56.144058+00:00",
+  "window": {
+    "since": "2026-09-04",
+    "until_exclusive": "2026-09-12"
+  },
+  "accounting": {
+    "chart_metric": "current_reserved_amount for new/materially revised orders in window",
+    "confidence_threshold": 0.8
+  },
+  "weekly_events": [],
+  "chart": [],
+  "unpriced": [],
+  "active_future_inventory": [],
+  "exceptions": []
+}
