@@ -34,10 +34,21 @@ classification:
     - democrat
     - dscc
     - dccc
+    - jon ossoff
+    - ossoff
+    - keisha lance bottoms
+    - keisha bottoms
   republican_keywords:
     - republican
     - nrsc
     - nrcc
+    - mike collins
+    - jackson for governor
+    - rick jackson
+    - senate leadership fund
+    - no going back pac
+    - one nation
+    - american mission
   neutral_label: unclear/issue-only
 validation:
   amount_tolerance_dollars: 2.00
