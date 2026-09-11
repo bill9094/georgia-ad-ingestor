@@ -1,0 +1,64 @@
+name: Georgia political ad ingestion
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 1,7,13,19 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ga-political-ad-ingestion
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install OCR/system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr poppler-utils
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      - name: Restore persistent SQLite state
+        uses: actions/cache/restore@v4
+        with:
+          path: data/ga_ads.sqlite3
+          key: ga-ads-sqlite-${{ github.run_id }}
+          restore-keys: |
+            ga-ads-sqlite-
+      - name: Run incremental ingestion and publish snapshot
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: bash deploy/run_incremental.sh
+      - name: Save persistent SQLite state
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: data/ga_ads.sqlite3
+          key: ga-ads-sqlite-${{ github.run_id }}
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ga-ad-ingestion-${{ github.run_id }}
+          path: |
+            output/
+            public/
+          retention-days: 90
+      - name: Publish machine-readable snapshot
+        run: |
+          if git diff --quiet -- public/; then exit 0; fi
+          git config user.name 'ga-ad-ingestor[bot]'
+          git config user.email 'ga-ad-ingestor[bot]@users.noreply.github.com'
+          git add public/
+          git commit -m "Update Georgia ad snapshot $(date -u +%FT%TZ)"
+          git push
