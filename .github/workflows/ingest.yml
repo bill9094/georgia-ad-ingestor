@@ -1,9 +1,7 @@
-name: Georgia political ad ingestion
+name: Georgia political ad queue processor
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
   schedule:
     - cron: '17 1,7,13,19 * * *'
 
@@ -37,7 +35,7 @@ jobs:
           key: ga-ads-sqlite-${{ github.run_id }}
           restore-keys: |
             ga-ads-sqlite-
-      - name: Run incremental ingestion and publish snapshot
+      - name: Import queues, process exact documents, and publish snapshot
         env:
           PYTHONPATH: ${{ github.workspace }}/src
         run: bash deploy/run_incremental.sh
