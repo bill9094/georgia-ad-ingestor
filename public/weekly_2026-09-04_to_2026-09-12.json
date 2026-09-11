@@ -1,23 +1,24 @@
 {
-  "schema_version": 2,
-  "generated_at_utc": "2026-09-11T19:28:37.350088+00:00",
+  "schema_version": 3,
+  "generated_at_utc": "2026-09-11T20:19:29.333144+00:00",
   "window": {
     "since": "2026-09-04",
     "until_exclusive": "2026-09-12"
   },
   "pipeline": {
-    "model": "agent discovery -> exact-document queue -> deterministic download/extract/reconcile -> secondary audit -> repeat",
+    "model": "systematic station scan -> exact-document queue -> deterministic download/extract/reconcile -> FEC + secondary audit -> evidence-based classification -> discrepancy loop",
     "queue_status": {
-      "reconciled": 17,
-      "retry": 3
+      "needs_visual_review": 2,
+      "reconciled": 18
     },
-    "unresolved_secondary_signals": 4
+    "unresolved_audit_signals": 4,
+    "unresolved_classification_entities": 1
   },
   "accounting": {
     "chart_metric": "current_reserved_amount for new/materially revised primary-supported orders in window",
     "original_reserved_amount": "first reliable accepted contract value",
     "current_reserved_amount": "latest reliable non-cancelled contract value",
-    "aired_invoiced_amount": "latest reliable invoice/reconciliation amount",
+    "aired_invoiced_amount": "explicit invoice-level total only",
     "secondary_amounts_imported_into_primary_totals": false,
     "confidence_threshold": 0.8
   },
@@ -25,18 +26,18 @@
     {
       "event_ts": "2026-09-05T08:23:50-04:00",
       "event_type": "invoice",
-      "amount": 30.0,
+      "amount": 12216.55,
       "order_key": "2591916693a4ce19a67bb518cefc708e5b16ac2d",
       "advertiser": "AMER MISSION SUPER PAC",
       "order_number": "SX655812",
       "current_reserved_amount": null,
       "original_reserved_amount": null,
-      "aired_invoiced_amount": 30.0,
+      "aired_invoiced_amount": 12216.55,
       "flight_start": null,
       "flight_end": null,
-      "partisan_alignment": "unclear/issue-only",
+      "partisan_alignment": "Republican-aligned",
       "status": "active",
-      "confidence": 0.55,
+      "confidence": 0.8,
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/b89362bb-37a3-40e3-8f15-13a2dca76e6b.pdf",
@@ -47,18 +48,18 @@
     {
       "event_ts": "2026-09-08T02:34:33-04:00",
       "event_type": "invoice",
-      "amount": 30.0,
+      "amount": 33194.67,
       "order_key": "1718535e9e466d8b17076ff5a46e21ae91b9a4ec",
       "advertiser": "One Nation",
       "order_number": "SG628722",
       "current_reserved_amount": null,
       "original_reserved_amount": null,
-      "aired_invoiced_amount": 30.0,
+      "aired_invoiced_amount": 33194.67,
       "flight_start": null,
       "flight_end": null,
       "partisan_alignment": "Republican-aligned",
       "status": "active",
-      "confidence": 0.55,
+      "confidence": 0.8,
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/041e79d8-f465-488e-b15f-2fadb5c1cd97.pdf",
@@ -130,6 +131,50 @@
       "source_url": "https://files.fcc.gov/download/83d7a19e-cd89-4331-8013-f84bbe1c3a9c.pdf",
       "doc_type": "contract",
       "file_name": "657622_Order_Contract_20260908111956",
+      "needs_visual_review": 0
+    },
+    {
+      "event_ts": "2026-09-08T21:41:55-04:00",
+      "event_type": "new_order",
+      "amount": null,
+      "order_key": "ed3b3392a9611cd71e91b67224dd8e137c26c47f",
+      "advertiser": "Richard Jackson For Governor",
+      "order_number": "WOC15813613",
+      "current_reserved_amount": null,
+      "original_reserved_amount": null,
+      "aired_invoiced_amount": null,
+      "flight_start": null,
+      "flight_end": null,
+      "partisan_alignment": "Republican-aligned",
+      "status": "active",
+      "confidence": 0.55,
+      "callsign": "WTOC-TV",
+      "dma": "Savannah",
+      "source_url": "https://files.fcc.gov/download/a73f088a-6236-4b6e-9ea2-3cb82d20b870.pdf",
+      "doc_type": "contract",
+      "file_name": "Jackson REV 909915 4500716--1",
+      "needs_visual_review": 0
+    },
+    {
+      "event_ts": "2026-09-08T21:42:09-04:00",
+      "event_type": "new_order",
+      "amount": null,
+      "order_key": "c043a19d989174f5defc25f05b62af29241363c7",
+      "advertiser": "Richard Jackson For Governor",
+      "order_number": "WOC15852897",
+      "current_reserved_amount": null,
+      "original_reserved_amount": null,
+      "aired_invoiced_amount": null,
+      "flight_start": null,
+      "flight_end": null,
+      "partisan_alignment": "Republican-aligned",
+      "status": "active",
+      "confidence": 0.55,
+      "callsign": "WTOC-TV",
+      "dma": "Savannah",
+      "source_url": "https://files.fcc.gov/download/07dd5210-102a-4c95-84a0-977d6c10e8af.pdf",
+      "doc_type": "contract",
+      "file_name": "Jackson 90960S 4540485--1",
       "needs_visual_review": 0
     },
     {
@@ -534,7 +579,26 @@
       "source_url": "https://files.fcc.gov/download/918127be-7139-47c5-a9d7-42db515fbe3e.pdf"
     }
   ],
-  "unpriced": [],
+  "unpriced": [
+    {
+      "advertiser": "Richard Jackson For Governor",
+      "market": "Savannah",
+      "callsign": "WTOC-TV",
+      "order_number": "WOC15813613",
+      "confidence": 0.55,
+      "source_url": "https://files.fcc.gov/download/a73f088a-6236-4b6e-9ea2-3cb82d20b870.pdf",
+      "reason": "amount_missing_or_low_confidence"
+    },
+    {
+      "advertiser": "Richard Jackson For Governor",
+      "market": "Savannah",
+      "callsign": "WTOC-TV",
+      "order_number": "WOC15852897",
+      "confidence": 0.55,
+      "source_url": "https://files.fcc.gov/download/07dd5210-102a-4c95-84a0-977d6c10e8af.pdf",
+      "reason": "amount_missing_or_low_confidence"
+    }
+  ],
   "active_future_inventory": [
     {
       "order_key": "9e2125110cc1e79cdd3689be1892a0cc86a9ffbc",
@@ -551,7 +615,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:23",
+      "updated_at": "2026-09-11 20:19:14",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/1010b53c-4f72-47a9-ba6d-c7cf0950210d.pdf",
@@ -572,7 +636,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:27:19",
+      "updated_at": "2026-09-11 20:18:10",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
@@ -593,7 +657,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:36",
+      "updated_at": "2026-09-11 20:19:28",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/918127be-7139-47c5-a9d7-42db515fbe3e.pdf",
@@ -614,7 +678,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:27:13",
+      "updated_at": "2026-09-11 20:18:04",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/ddf7d61c-4698-4975-bd31-4c42aab32632.pdf",
@@ -635,7 +699,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:36",
+      "updated_at": "2026-09-11 20:19:27",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/c9fef6fa-2582-4d69-bb71-809c5611d6b1.pdf",
@@ -656,7 +720,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:30",
+      "updated_at": "2026-09-11 20:19:20",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
@@ -677,7 +741,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:29",
+      "updated_at": "2026-09-11 20:19:19",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/3d2fc5d8-725d-42b4-b214-b72c26c7859d.pdf",
@@ -698,7 +762,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:27:46",
+      "updated_at": "2026-09-11 20:18:32",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/b289c131-6cf9-4502-af4a-bc7a22da38ed.pdf",
@@ -719,7 +783,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:27:21",
+      "updated_at": "2026-09-11 20:18:12",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/83d7a19e-cd89-4331-8013-f84bbe1c3a9c.pdf",
@@ -740,7 +804,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:33",
+      "updated_at": "2026-09-11 20:19:24",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/d9f58121-096c-452d-a7ff-509eb6faefeb.pdf",
@@ -761,7 +825,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:31",
+      "updated_at": "2026-09-11 20:19:22",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/e74765be-3c7b-4f08-90f5-cb893d09b9af.pdf",
@@ -782,7 +846,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:28",
+      "updated_at": "2026-09-11 20:19:17",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/5ad22a97-c80a-4ab8-859f-7100f696d81e.pdf",
@@ -803,7 +867,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:25",
+      "updated_at": "2026-09-11 20:19:15",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
@@ -824,7 +888,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:24",
+      "updated_at": "2026-09-11 20:19:14",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/a3452c3d-d092-49a1-8581-e38577c3bc5e.pdf",
@@ -845,7 +909,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-11 19:28:27",
+      "updated_at": "2026-09-11 20:19:16",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/376a850a-6113-45ea-9a3f-4ad0ca1a7a8c.pdf",
@@ -871,7 +935,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-11 19:27:10"
+      "updated_at": "2026-09-11 20:18:01"
     },
     {
       "signal_key": "e50ddf23b022f81fd4d2859ce05fcf92",
@@ -891,7 +955,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-11 19:27:10"
+      "updated_at": "2026-09-11 20:18:01"
     },
     {
       "signal_key": "db8a5779c4359aca10ed94d6a3b2b97c",
@@ -911,7 +975,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-11 19:27:10"
+      "updated_at": "2026-09-11 20:18:01"
     },
     {
       "signal_key": "5e22a510c0ab2f9f81941e287efa8abf",
@@ -931,36 +995,34 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-11 19:27:10"
+      "updated_at": "2026-09-11 20:18:01"
+    }
+  ],
+  "unresolved_classification_entities": [
+    {
+      "advertiser": "GA CONNECTS",
+      "orders_count": 2,
+      "amount": 159017.04
     }
   ],
   "exceptions": [
     {
-      "id": 33,
-      "document_id": null,
-      "severity": "error",
-      "code": "queue_process_error",
-      "message": "0b9c5a186e0143c6e1f059a895997138: FCC history did not resolve exact filename for entity 590: Jackson 90960S 4540485--1; diagnostics=[{'service': 'tv', 'dates': True, 'offset': 0, 'rows': 14, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': None, 'dates': True, 'offset': 0, 'rows': 14, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': 'tv', 'dates': False, 'offset': 0, 'rows': 95, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': None, 'dates': False, 'offset': 0, 'rows': 95, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}]",
+      "id": 39,
+      "document_id": 91,
+      "severity": "warning",
+      "code": "amount_missing",
+      "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-09-11 19:27:26"
+      "created_at": "2026-09-11 20:18:15"
     },
     {
-      "id": 34,
-      "document_id": null,
-      "severity": "error",
-      "code": "queue_process_error",
-      "message": "11dd2f76b69e83dd38d9c402192e22bc: FCC history did not resolve exact filename for entity 590: Jackson REV 909915 4500716--1; diagnostics=[{'service': 'tv', 'dates': True, 'offset': 0, 'rows': 14, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': None, 'dates': True, 'offset': 0, 'rows': 14, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': 'tv', 'dates': False, 'offset': 0, 'rows': 95, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': None, 'dates': False, 'offset': 0, 'rows': 95, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}]",
+      "id": 40,
+      "document_id": 92,
+      "severity": "warning",
+      "code": "amount_missing",
+      "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-09-11 19:27:31"
-    },
-    {
-      "id": 35,
-      "document_id": null,
-      "severity": "error",
-      "code": "queue_process_error",
-      "message": "40f7215b616fd2fa525fabe5403c1328: FCC history did not resolve exact filename for entity 590: Ossoff REV 17651 4515550--1; diagnostics=[{'service': 'tv', 'dates': True, 'offset': 0, 'rows': 14, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': None, 'dates': True, 'offset': 0, 'rows': 14, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': 'tv', 'dates': False, 'offset': 0, 'rows': 95, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}, {'service': None, 'dates': False, 'offset': 0, 'rows': 95, 'top_keys': ['status', 'statusCode', 'statusMessage', 'history']}]",
-      "resolved": 0,
-      "created_at": "2026-09-11 19:27:37"
+      "created_at": "2026-09-11 20:18:19"
     }
   ]
 }
