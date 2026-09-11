@@ -1,20 +1,23 @@
-import argparse, json
-from .config import load_config, resolve
+import argparse,json
+from .config import load_config,resolve
 from .db import init_db
-from .report import weekly, publish_snapshot
+from .report import weekly,publish_snapshot
 from .cleanup import cleanup
-from .queue import import_document_queue, queue_status
-from .audit import import_audit_signals, unresolved_audit
+from .queue import import_document_queue,queue_status
+from .audit import import_audit_signals,unresolved_audit
 from .processor import process_queue
-
+from .fec_audit import ingest_fec_notices
+from .classification import import_classification_evidence,apply_classifications,unresolved_sponsors
 
 def main():
     p=argparse.ArgumentParser(prog='ga-ads');p.add_argument('--config',default='config/georgia.yaml');sp=p.add_subparsers(dest='cmd',required=True)
     sp.add_parser('init-db')
     q=sp.add_parser('import-queue');q.add_argument('--path',default='queue/inbox.jsonl')
     a=sp.add_parser('import-audit');a.add_argument('--path',default='audit/inbox.jsonl')
+    ce=sp.add_parser('import-classification');ce.add_argument('--path',default='classification/inbox.jsonl')
     pq=sp.add_parser('process-queue');pq.add_argument('--limit',type=int,default=100);pq.add_argument('--reprocess',action='store_true')
-    sp.add_parser('queue-status');sp.add_parser('audit-status')
+    fec=sp.add_parser('fec-audit');fec.add_argument('--since',required=True);fec.add_argument('--until',required=True);fec.add_argument('--state',default='GA');fec.add_argument('--cycle',type=int,default=2026)
+    sp.add_parser('apply-classification');sp.add_parser('classification-status');sp.add_parser('queue-status');sp.add_parser('audit-status')
     w=sp.add_parser('weekly');w.add_argument('--since',required=True);w.add_argument('--until',required=True)
     pub=sp.add_parser('publish');pub.add_argument('--since',required=True);pub.add_argument('--until',required=True)
     c=sp.add_parser('cleanup');c.add_argument('--hours',type=float)
@@ -22,7 +25,11 @@ def main():
     if args.cmd=='init-db':init_db(resolve(cfg,'storage.sqlite_path'));result={'status':'ok'}
     elif args.cmd=='import-queue':result=import_document_queue(cfg,args.path)
     elif args.cmd=='import-audit':result=import_audit_signals(cfg,args.path)
+    elif args.cmd=='import-classification':result=import_classification_evidence(cfg,args.path)
     elif args.cmd=='process-queue':result=process_queue(cfg,args.limit,args.reprocess)
+    elif args.cmd=='fec-audit':result=ingest_fec_notices(cfg,args.since,args.until,args.state,args.cycle)
+    elif args.cmd=='apply-classification':result=apply_classifications(cfg)
+    elif args.cmd=='classification-status':result={'unresolved':unresolved_sponsors(cfg)}
     elif args.cmd=='queue-status':result=queue_status(cfg)
     elif args.cmd=='audit-status':result={'unresolved':unresolved_audit(cfg)}
     elif args.cmd=='weekly':result=weekly(cfg,args.since,args.until)
