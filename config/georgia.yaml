@@ -1,0 +1,44 @@
+project:
+  name: Georgia Political Ad Ingestor
+  timezone: America/New_York
+  campaign_year: 2026
+  temp_retention_hours: 24
+fcc:
+  base_url: https://publicfiles.fcc.gov
+  request_delay_seconds: 0.75
+  timeout_seconds: 30
+  user_agent: GeorgiaPoliticalAdResearch/1.0
+  history_page_size: 100
+  services: [tv, cable, dbs]
+  target_state: GA
+  target_dmas:
+    - Atlanta
+    - Savannah
+    - Augusta
+    - Macon
+    - Columbus
+    - Albany
+    - Chattanooga
+  include_cross_state_dma: true
+  rss_first: true
+  initial_backfill_days: 21
+  manual_entities_csv: config/manual_entities.csv
+storage:
+  sqlite_path: data/ga_ads.sqlite3
+  temp_pdf_dir: data/tmp_pdfs
+  export_dir: output
+  public_dir: public
+classification:
+  democratic_keywords:
+    - democratic
+    - democrat
+    - dscc
+    - dccc
+  republican_keywords:
+    - republican
+    - nrsc
+    - nrcc
+  neutral_label: unclear/issue-only
+validation:
+  amount_tolerance_dollars: 2.00
+  min_confidence_for_chart: 0.80
