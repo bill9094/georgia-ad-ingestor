@@ -8,14 +8,19 @@ def _queue_key(x):
     explicit = x.get('queue_key')
     if explicit:
         return str(explicit)
-    parts = [
-        str(x.get('source_kind') or 'fcc'),
-        str(x.get('entity_id') or ''),
-        str(x.get('folder_id') or ''),
-        str(x.get('file_manager_id') or ''),
-        str(x.get('source_url') or ''),
-    ]
-    return hashlib.sha256('|'.join(parts).encode()).hexdigest()[:32]
+    source = str(x.get('source_kind') or 'fcc')
+    entity = str(x.get('entity_id') or '')
+    folder = str(x.get('folder_id') or '')
+    manager = str(x.get('file_manager_id') or '')
+    url = str(x.get('source_url') or '')
+    name = str(x.get('file_name') or '')
+    if folder and manager:
+        identity = [source, entity, folder, manager]
+    elif url:
+        identity = [source, entity, url]
+    else:
+        identity = [source, entity, name]
+    return hashlib.sha256('|'.join(identity).encode()).hexdigest()[:32]
 
 
 def import_document_queue(cfg, path='queue/inbox.jsonl'):
