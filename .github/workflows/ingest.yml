@@ -56,7 +56,7 @@ jobs:
           retention-days: 90
       - name: Publish machine-readable snapshot
         run: |
-          if git diff --quiet -- public/; then exit 0; fi
+          if [ -z "$(git status --porcelain -- public/)" ]; then exit 0; fi
           git config user.name 'ga-ad-ingestor[bot]'
           git config user.email 'ga-ad-ingestor[bot]@users.noreply.github.com'
           git add public/
