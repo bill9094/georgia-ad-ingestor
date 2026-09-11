@@ -1,5 +1,6 @@
 # One JSON object per line. The research agent appends exact primary-document references here.
 # Exact indexed filename + entity_id is sufficient; the processor resolves the FCC history record before download.
+# demo-requeue: 2026-09-11 resolver-v2
 {"source_kind":"fcc","entity_id":"000170","service":"cable","callsign":"891102MH","dma":"Atlanta","file_name":"63379430.630537_Order_Contract_20260910091850740","discovered_at":"2026-09-10T09:18:50-04:00","source_index_url":"https://fcc.report/Public-Files/cable/000170","discovery_note":"Political Files/2026/State/Atlanta GA/Governor/Keisha Lance Bottoms"}
 {"source_kind":"fcc","entity_id":"000170","service":"cable","callsign":"891102MH","dma":"Atlanta","file_name":"63379480.630553_Order_Contract_20260910093745843","discovered_at":"2026-09-10T09:37:45-04:00","source_index_url":"https://fcc.report/Public-Files/cable/000170","discovery_note":"Political Files/2026/Non-Candidate Issue Ads/Atlanta GA/No Going Back PAC"}
 {"source_kind":"fcc","entity_id":"000170","service":"cable","callsign":"891102MH","dma":"Atlanta","file_name":"63372648.628722_Invoice_20260908023433591","discovered_at":"2026-09-08T02:34:33-04:00","source_index_url":"https://fcc.report/Public-Files/cable/000170","discovery_note":"Political Files/2026/Non-Candidate Issue Ads/Atlanta GA/MHBOne Nation"}
