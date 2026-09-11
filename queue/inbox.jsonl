@@ -1,0 +1,3 @@
+# One JSON object per line. The research agent appends exact primary-document references here.
+# Required: either folder_id + file_manager_id, or source_url.
+# Recommended FCC fields: source_kind, entity_id, service, callsign, dma, folder_id, file_manager_id, file_name, discovered_at, source_index_url, discovery_note.
