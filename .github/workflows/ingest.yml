@@ -2,6 +2,11 @@ name: Georgia political ad queue processor
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'queue/**'
+      - 'audit/**'
   schedule:
     - cron: '17 1,7,13,19 * * *'
 
