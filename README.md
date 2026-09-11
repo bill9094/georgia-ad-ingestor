@@ -45,9 +45,11 @@ Example:
 
 Secondary amounts are exposed in the discrepancy ledger but **never imported into primary spending totals**.
 
-## Scheduled processor
+## Processor triggers
 
-The GitHub Actions workflow runs four times daily and can also be dispatched manually. It performs:
+The GitHub Actions workflow runs four times daily as a safety net, can be dispatched manually, and also runs automatically whenever `queue/**` or `audit/**` changes on `main`. The bot's later `public/**` snapshot commit does **not** retrigger the workflow, preventing a publish loop.
+
+Each processor run performs:
 
 ```text
 init-db
