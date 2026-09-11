@@ -43,6 +43,7 @@ jobs:
       - name: Import queues, process exact documents, and publish snapshot
         env:
           PYTHONPATH: ${{ github.workspace }}/src
+          GA_ADS_REPROCESS: '1'
         run: bash deploy/run_incremental.sh
       - name: Save persistent SQLite state
         uses: actions/cache/save@v4
