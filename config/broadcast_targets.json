@@ -1,19 +1,158 @@
 {
-  "purpose": "Required station-by-station discovery universe for each weekly scan; resolve current FCC entity IDs from the public-file index and record any additions/changes.",
+  "purpose": "Canonical station-by-station broadcast discovery universe for Georgia political advertising. Every reporting cycle must scan every active station listed here before a market may be described as having no identified broadcast activity.",
+  "coverage_basis": {
+    "primary_georgia_dmas": [
+      "Albany",
+      "Atlanta",
+      "Augusta",
+      "Columbus",
+      "Macon",
+      "Savannah"
+    ],
+    "adjacent_dmas_covering_georgia_counties": [
+      "Chattanooga",
+      "Dothan",
+      "Greenville-Spartanburg-Asheville-Anderson",
+      "Jacksonville",
+      "Tallahassee-Thomasville"
+    ],
+    "note": "The 6+5 market universe follows Georgia statewide television planning materials identifying six primary DMAs and five additional markets needed for Georgia-county coverage."
+  },
   "markets": {
-    "Atlanta": ["WSB-TV","WAGA-TV","WXIA-TV","WANF","WPCH-TV","WATL","WUPA"],
-    "Albany": ["WALB","WFXL"],
-    "Augusta": ["WRDW-TV","WAGT-CD","WJBF","WFXG"],
-    "Savannah": ["WTOC-TV","WSAV-TV","WJCL","WTGS"],
-    "Columbus": ["WRBL","WTVM","WLTZ"],
-    "Macon": ["WMAZ-TV","WGXA","WMGT-TV"],
-    "Chattanooga / NW Georgia spillover": ["WTVC","WRCB-TV","WDEF-TV","WFLI-TV"]
+    "Atlanta": {
+      "tier": "primary",
+      "stations": [
+        {"callsign":"WSB-TV","affiliations":["ABC"],"news_operation":"WSB-TV / Channel 2 Action News","required":true},
+        {"callsign":"WAGA-TV","affiliations":["FOX"],"news_operation":"FOX 5 Atlanta","required":true},
+        {"callsign":"WXIA-TV","affiliations":["NBC"],"news_operation":"11Alive","required":true},
+        {"callsign":"WUPA","affiliations":["CBS"],"news_operation":"CBS Atlanta","required":true,"notes":"CBS affiliation moved to WUPA in 2025; keep current affiliation under review."},
+        {"callsign":"WANF","affiliations":["Independent"],"news_operation":"Atlanta News First","required":true,"notes":"Retain despite loss of CBS affiliation because it remains a major local-news and political-ad outlet."},
+        {"callsign":"WPCH-TV","affiliations":["CW"],"news_operation":"Atlanta News First shared newsroom/programming","required":true},
+        {"callsign":"WATL","affiliations":["MyNetworkTV"],"news_operation":"11Alive/Tegna shared local-news inventory where applicable","required":true},
+        {"callsign":"WUVG-DT","affiliations":["Univision"],"news_operation":"Univision Atlanta","required":true,"notes":"Spanish-language political inventory."},
+        {"callsign":"WKTB-CD","affiliations":["Telemundo"],"news_operation":"Telemundo Atlanta","required":true,"notes":"Spanish-language political inventory; Class A/low-power status does not remove from scan universe."}
+      ]
+    },
+    "Albany": {
+      "tier": "primary",
+      "stations": [
+        {"callsign":"WALB","affiliations":["NBC","ABC (subchannel)"],"news_operation":"WALB News 10 / WALB ABC","required":true},
+        {"callsign":"WFXL","affiliations":["FOX"],"news_operation":"FOX 31 / local news","required":true},
+        {"callsign":"WSWG","affiliations":["CBS"],"news_operation":"CBS Southwest Georgia","required":true,"notes":"Licensed to Valdosta; serves Albany/South Georgia inventory."}
+      ]
+    },
+    "Augusta": {
+      "tier": "primary",
+      "stations": [
+        {"callsign":"WJBF","affiliations":["ABC"],"news_operation":"NewsChannel 6","required":true},
+        {"callsign":"WRDW-TV","affiliations":["CBS"],"news_operation":"News 12","required":true},
+        {"callsign":"WAGT-CD","affiliations":["NBC"],"news_operation":"NBC 26 / shared WRDW newsroom","required":true,"notes":"Class A station; must remain in scan universe."},
+        {"callsign":"WFXG","affiliations":["FOX"],"news_operation":"FOX 54","required":true}
+      ]
+    },
+    "Savannah": {
+      "tier": "primary",
+      "stations": [
+        {"callsign":"WTOC-TV","affiliations":["CBS"],"news_operation":"WTOC News","required":true},
+        {"callsign":"WSAV-TV","affiliations":["NBC","CW (subchannel)"],"news_operation":"WSAV News 3","required":true},
+        {"callsign":"WJCL","affiliations":["ABC"],"news_operation":"WJCL 22 News","required":true},
+        {"callsign":"WTGS","affiliations":["FOX"],"news_operation":"FOX 28 Savannah","required":true}
+      ]
+    },
+    "Columbus": {
+      "tier": "primary",
+      "stations": [
+        {"callsign":"WRBL","affiliations":["CBS"],"news_operation":"WRBL News 3","required":true},
+        {"callsign":"WTVM","affiliations":["ABC"],"news_operation":"WTVM News Leader 9","required":true},
+        {"callsign":"WLTZ","affiliations":["NBC","CW (subchannel)"],"news_operation":"Local news / NBC 38","required":true},
+        {"callsign":"WXTX","affiliations":["FOX"],"news_operation":"FOX 54 Columbus","required":true,"notes":"Previously omitted from canonical manifest; now mandatory."}
+      ]
+    },
+    "Macon": {
+      "tier": "primary",
+      "stations": [
+        {"callsign":"WMAZ-TV","affiliations":["CBS","CW (subchannel)"],"news_operation":"13WMAZ","required":true},
+        {"callsign":"WGXA","affiliations":["FOX","ABC (subchannel)"],"news_operation":"WGXA News / FOX24 / ABC16","required":true},
+        {"callsign":"WMGT-TV","affiliations":["NBC"],"news_operation":"41NBC News","required":true}
+      ]
+    },
+    "Chattanooga": {
+      "tier": "adjacent_georgia_counties",
+      "stations": [
+        {"callsign":"WTVC","affiliations":["ABC","FOX (subchannel)"],"news_operation":"NewsChannel 9","required":true,"notes":"Mandatory Northwest Georgia spillover market."},
+        {"callsign":"WRCB-TV","affiliations":["NBC"],"news_operation":"Local 3 News","required":true},
+        {"callsign":"WDEF-TV","affiliations":["CBS"],"news_operation":"News 12 / WDEF","required":true},
+        {"callsign":"WFLI-TV","affiliations":["CW"],"news_operation":"CW Chattanooga / shared-market inventory","required":true}
+      ]
+    },
+    "Dothan": {
+      "tier": "adjacent_georgia_counties",
+      "stations": [
+        {"callsign":"WTVY-TV","affiliations":["CBS","CW (subchannel)"],"news_operation":"WTVY News 4","required":true},
+        {"callsign":"WRGX-LD","affiliations":["NBC"],"news_operation":"NBC Wiregrass / shared WTVY newsroom","required":true,"notes":"Low-power station; retain because it is the market NBC news outlet."},
+        {"callsign":"WDHN-TV","affiliations":["ABC"],"news_operation":"DothanFirst / WDHN News","required":true},
+        {"callsign":"WDFX-TV","affiliations":["FOX"],"news_operation":"FOX 34","required":true}
+      ]
+    },
+    "Greenville-Spartanburg-Asheville-Anderson": {
+      "tier": "adjacent_georgia_counties",
+      "stations": [
+        {"callsign":"WYFF","affiliations":["NBC","CBS (subchannel, effective 2026)"],"news_operation":"WYFF News 4","required":true,"notes":"Northeastern Georgia is part of this DMA; CBS moved into the WYFF facility in August 2026."},
+        {"callsign":"WSPA-TV","affiliations":["CW"],"news_operation":"7NEWS","required":true,"notes":"Former CBS affiliate; retained because the local newsroom remains active after the August 2026 affiliation change."},
+        {"callsign":"WLOS","affiliations":["ABC"],"news_operation":"News 13","required":true},
+        {"callsign":"WHNS","affiliations":["FOX"],"news_operation":"FOX Carolina","required":true}
+      ]
+    },
+    "Jacksonville": {
+      "tier": "adjacent_georgia_counties",
+      "stations": [
+        {"callsign":"WTLV","affiliations":["NBC"],"news_operation":"First Coast News","required":true},
+        {"callsign":"WJXX","affiliations":["ABC"],"news_operation":"First Coast News","required":true},
+        {"callsign":"WJAX-TV","affiliations":["CBS"],"news_operation":"Action News Jax","required":true},
+        {"callsign":"WFOX-TV","affiliations":["FOX","Telemundo (subchannel)"],"news_operation":"Action News Jax / Telemundo Jacksonville","required":true},
+        {"callsign":"WJXT","affiliations":["Independent"],"news_operation":"News4JAX","required":true,"notes":"Major local-news outlet despite independent affiliation."}
+      ]
+    },
+    "Tallahassee-Thomasville": {
+      "tier": "adjacent_georgia_counties",
+      "stations": [
+        {"callsign":"WCTV","affiliations":["CBS"],"news_operation":"WCTV Eyewitness News","required":true,"notes":"Licensed to Thomasville, Georgia; core South Georgia outlet."},
+        {"callsign":"WTXL-TV","affiliations":["ABC"],"news_operation":"ABC 27 News","required":true,"notes":"Station explicitly describes coverage of South Georgia."},
+        {"callsign":"WTWC-TV","affiliations":["NBC","FOX (subchannel)"],"news_operation":"NBC 40 / FOX 49 market inventory","required":true},
+        {"callsign":"WFXU","affiliations":["Independent/MyNetworkTV"],"news_operation":"Gray/WCTV-produced local news including former FOX 49 newscasts","required":true,"notes":"Include because local news programming moved here in January 2026."}
+      ]
+    }
+  },
+  "normalization": {
+    "canonical_key": "uppercase legal callsign stripped of -DT suffix only; preserve -TV, -CD, and -LD when legally meaningful",
+    "aliases": {
+      "WANF": ["WGCL-TV","WGCL"],
+      "WAGA-TV": ["WAGA"],
+      "WXIA-TV": ["WXIA"],
+      "WMAZ-TV": ["WMAZ"],
+      "WMGT-TV": ["WMGT"],
+      "WTOC-TV": ["WTOC"],
+      "WSAV-TV": ["WSAV"],
+      "WRDW-TV": ["WRDW"],
+      "WTVY-TV": ["WTVY"],
+      "WJAX-TV": ["WJAX"],
+      "WFOX-TV": ["WFOX"],
+      "WTXL-TV": ["WTXL"],
+      "WTWC-TV": ["WTWC"],
+      "WSPA-TV": ["WSPA"],
+      "WRCB-TV": ["WRCB"]
+    }
   },
   "rules": [
-    "Scan every listed station each reporting cycle, regardless of known advertiser activity.",
-    "Search station political-file indexes for the full reporting window plus a short overlap for late uploads/revisions.",
+    "Scan every required station each reporting cycle, regardless of known advertiser activity.",
+    "The automatic station pass occurs before advertiser-specific or discrepancy-driven searching.",
+    "Search each station political-file index for the full reporting window plus an overlap for late uploads and revisions.",
     "Queue exact contracts/orders/invoices and material revisions; record NAB/traffic-only filings as presence signals when no priced document is available.",
-    "Do not declare a market inactive until every target station plus known cable/DBS distributors has been checked.",
-    "If a station changes call sign, ownership, or FCC entity ID, update this manifest rather than silently dropping it."
+    "A station with multiple major-network affiliations on subchannels is scanned once at the FCC facility level, but all political-file folders must be considered.",
+    "Shared-newsroom or independent local-news stations remain mandatory because political inventory can be placed there even without a Big Four affiliation.",
+    "Include Spanish-language local-news outlets where they are distinct FCC facilities.",
+    "Do not declare a market inactive until every required station plus known cable/DBS distributors has been checked.",
+    "If a station changes call sign, affiliation, ownership, or FCC entity ID, update this manifest and alias table rather than silently dropping it.",
+    "After a station's FCC entity/facility ID is positively resolved, persist it as station metadata so subsequent cycles do not rediscover identity from scratch."
   ]
 }
