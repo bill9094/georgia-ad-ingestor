@@ -1,0 +1,3 @@
+# One JSON object per line. Use only evidence-based classifications for unresolved sponsors/buys.
+# Required: sponsor, alignment, source_url. Recommended: support_oppose, target_candidate, target_party,
+# communication_title, communication_summary, source_type, source_name, observed_at, confidence, notes.
