@@ -1,17 +1,400 @@
 {
-  "schema_version": 1,
-  "generated_at_utc": "2026-09-11T18:05:58.799107+00:00",
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-11T19:02:55.211931+00:00",
   "window": {
     "since": "2026-09-04",
     "until_exclusive": "2026-09-12"
   },
+  "pipeline": {
+    "model": "agent discovery -> exact-document queue -> deterministic download/extract/reconcile -> secondary audit -> repeat",
+    "queue_status": {
+      "failed": 5,
+      "retry": 17
+    },
+    "unresolved_secondary_signals": 4
+  },
   "accounting": {
-    "chart_metric": "current_reserved_amount for new/materially revised orders in window",
+    "chart_metric": "current_reserved_amount for new/materially revised primary-supported orders in window",
+    "original_reserved_amount": "first reliable accepted contract value",
+    "current_reserved_amount": "latest reliable non-cancelled contract value",
+    "aired_invoiced_amount": "latest reliable invoice/reconciliation amount",
+    "secondary_amounts_imported_into_primary_totals": false,
     "confidence_threshold": 0.8
   },
   "weekly_events": [],
   "chart": [],
   "unpriced": [],
   "active_future_inventory": [],
-  "exceptions": []
+  "unresolved_audit_signals": [
+    {
+      "signal_key": "226d0f81dc2345bf6f7d570824b0a7dd",
+      "source_type": "reporting",
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/legal/government/trump-musk-super-pacs-unleash-millions-boost-republicans-battleground-races-2026-09-11/",
+      "observed_at": "2026-09-11",
+      "advertiser": "No Going Back PAC",
+      "candidate": null,
+      "race": null,
+      "geography": "Alaska, Georgia, Michigan, North Carolina, New Hampshire, Ohio",
+      "medium": "TV",
+      "claimed_amount": 24900000.0,
+      "amount_scope": "multi-state TV bookings across six states",
+      "summary": "Reuters reports $24.9 million in TV bookings across six states including Georgia; Georgia allocation unresolved.",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-09-11 18:59:44",
+      "updated_at": "2026-09-11 19:01:52"
+    },
+    {
+      "signal_key": "e50ddf23b022f81fd4d2859ce05fcf92",
+      "source_type": "organization_announcement",
+      "source_name": "J Street Action Fund",
+      "source_url": "https://jstreet.org/press/j-street-action-fund-announces-3-million-ad-campaign-taking-aipac-backed-anti-democracy",
+      "observed_at": "2026-09-10",
+      "advertiser": "J Street Action Fund",
+      "candidate": "Mike Collins",
+      "race": "Georgia U.S. Senate",
+      "geography": "Georgia plus OH-07, WI-03, PA-07, IA-01",
+      "medium": "ads",
+      "claimed_amount": 3000000.0,
+      "amount_scope": "five-race total, Georgia allocation unspecified",
+      "summary": "J Street announced a $3 million campaign across five races including ads targeting Mike Collins in Georgia; no Georgia allocation stated.",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-09-11 18:59:44",
+      "updated_at": "2026-09-11 19:01:52"
+    },
+    {
+      "signal_key": "db8a5779c4359aca10ed94d6a3b2b97c",
+      "source_type": "reporting",
+      "source_name": "Atlanta Journal-Constitution",
+      "source_url": "https://www.ajc.com/politics/2026/07/mike-collins-gets-multimillion-dollar-boost-from-gop-group/",
+      "observed_at": "2026-07-01",
+      "advertiser": "One Nation",
+      "candidate": null,
+      "race": "Georgia U.S. Senate",
+      "geography": "Georgia",
+      "medium": "advertising",
+      "claimed_amount": 2500000.0,
+      "amount_scope": "reported initial ad buy within a broader $15 million Georgia plan",
+      "summary": "AJC reported an initial $2.5 million One Nation ad buy and a broader $15 million Georgia plan; current-week FCC invoices should be treated as corroboration, not automatic allocation of these figures.",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-09-11 18:59:44",
+      "updated_at": "2026-09-11 19:01:52"
+    },
+    {
+      "signal_key": "5e22a510c0ab2f9f81941e287efa8abf",
+      "source_type": "organization_announcement",
+      "source_name": "Senate Leadership Fund",
+      "source_url": "https://senateleadershipfund.org/press-releases/slf-announces-initial-44-million-investment-in-georgias-u-s-senate-race/",
+      "observed_at": "2026-04-06",
+      "advertiser": "Senate Leadership Fund",
+      "candidate": null,
+      "race": "Georgia U.S. Senate",
+      "geography": "Georgia",
+      "medium": "broadcast, cable, streaming, radio and broader campaign activity",
+      "claimed_amount": 44000000.0,
+      "amount_scope": "initial Georgia investment through Election Day, not weekly TV-only",
+      "summary": "SLF announced an initial $44 million Georgia investment spanning multiple media and campaign channels; use as cumulative completeness benchmark only.",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-09-11 18:59:44",
+      "updated_at": "2026-09-11 19:01:52"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": 1,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "0b8263cfcbafc73e15522973d143f1df: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/a935c61d-0628-c0c3-238e-47dab45a0bbd/b89362bb-37a3-40e3-8f15-13a2dca76e6b.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:58:22"
+    },
+    {
+      "id": 2,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "35b117f9d80a76d60fdd18667d83095c: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/c030c357-6078-8ae8-e6da-2ace32ca7e89/041e79d8-f465-488e-b15f-2fadb5c1cd97.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:58:27"
+    },
+    {
+      "id": 3,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "f1d52aa941db38021f645d1fb7aca15d: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/7fc40aac-1d58-fb06-9688-3cec943bd597/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:58:30"
+    },
+    {
+      "id": 4,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "2ea83a10034c5fbe3cbcbab2d6affc12: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/4a0a192c-75e7-121d-d895-178361d64f8b/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:58:33"
+    },
+    {
+      "id": 5,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "db174f733c0db0b50dd21f12a60b4bd5: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/12fad1a0-84f2-ac84-fa89-b2da54ae8c5d/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:58:36"
+    },
+    {
+      "id": 6,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "0b8263cfcbafc73e15522973d143f1df: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/a935c61d-0628-c0c3-238e-47dab45a0bbd/b89362bb-37a3-40e3-8f15-13a2dca76e6b.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:59:46"
+    },
+    {
+      "id": 7,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "35b117f9d80a76d60fdd18667d83095c: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/c030c357-6078-8ae8-e6da-2ace32ca7e89/041e79d8-f465-488e-b15f-2fadb5c1cd97.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:59:51"
+    },
+    {
+      "id": 8,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "f1d52aa941db38021f645d1fb7aca15d: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/7fc40aac-1d58-fb06-9688-3cec943bd597/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:59:54"
+    },
+    {
+      "id": 9,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "2ea83a10034c5fbe3cbcbab2d6affc12: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/4a0a192c-75e7-121d-d895-178361d64f8b/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:59:56"
+    },
+    {
+      "id": 10,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "db174f733c0db0b50dd21f12a60b4bd5: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/12fad1a0-84f2-ac84-fa89-b2da54ae8c5d/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 18:59:59"
+    },
+    {
+      "id": 11,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "0b8263cfcbafc73e15522973d143f1df: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/a935c61d-0628-c0c3-238e-47dab45a0bbd/b89362bb-37a3-40e3-8f15-13a2dca76e6b.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:01:54"
+    },
+    {
+      "id": 12,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "b3baeb7d877feb3f84c67f7db8554957: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/a935c61d-0628-c0c3-238e-47dab45a0bbd/b89362bb-37a3-40e3-8f15-13a2dca76e6b.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:01:57"
+    },
+    {
+      "id": 13,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "35b117f9d80a76d60fdd18667d83095c: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/c030c357-6078-8ae8-e6da-2ace32ca7e89/041e79d8-f465-488e-b15f-2fadb5c1cd97.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:00"
+    },
+    {
+      "id": 14,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "093c26bd2701870952c8262eab88d59c: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/c030c357-6078-8ae8-e6da-2ace32ca7e89/041e79d8-f465-488e-b15f-2fadb5c1cd97.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:02"
+    },
+    {
+      "id": 15,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "340f782fcfcb302dd3ce076e30b1261b: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/1914b769-ae8b-6bd4-72f9-360cfa8e3913/ddf7d61c-4698-4975-bd31-4c42aab32632.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:05"
+    },
+    {
+      "id": 16,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "f1d52aa941db38021f645d1fb7aca15d: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/7fc40aac-1d58-fb06-9688-3cec943bd597/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:08"
+    },
+    {
+      "id": 17,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "0dd5057a335293429525f93904783761: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/7fc40aac-1d58-fb06-9688-3cec943bd597/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:11"
+    },
+    {
+      "id": 18,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "6a27771f2be3788b7b669d313ff79518: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/4c6fcbef-5f5f-742f-6b79-db50aa58ef2e/83d7a19e-cd89-4331-8013-f84bbe1c3a9c.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:14"
+    },
+    {
+      "id": 19,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "3b9c2420cd494cbb6dcc41318d4998aa: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/94f8957e-d4f9-ffce-a8fe-716ea5ee6a56/b289c131-6cf9-4502-af4a-bc7a22da38ed.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:17"
+    },
+    {
+      "id": 20,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "c6e864a7e3be9537f885e936940b39f5: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/94f8957e-d4f9-ffce-a8fe-716ea5ee6a56/1010b53c-4f72-47a9-ba6d-c7cf0950210d.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:20"
+    },
+    {
+      "id": 21,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "b3b1c820bcf290970baeb5adc82bdac9: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/4a0a192c-75e7-121d-d895-178361d64f8b/a3452c3d-d092-49a1-8581-e38577c3bc5e.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:23"
+    },
+    {
+      "id": 22,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "2ea83a10034c5fbe3cbcbab2d6affc12: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/4a0a192c-75e7-121d-d895-178361d64f8b/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:25"
+    },
+    {
+      "id": 23,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "b2d3d6f654f1e4d9eda658875b7e0b59: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/4a0a192c-75e7-121d-d895-178361d64f8b/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:28"
+    },
+    {
+      "id": 24,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "e56017eb894ba7ac3bddc17729264f2d: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/1fad6c0a-7a3a-56d1-5f0b-c9104ddf8955/376a850a-6113-45ea-9a3f-4ad0ca1a7a8c.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:32"
+    },
+    {
+      "id": 25,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "332ff4bf82902d6fc32d446b7de613fc: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/1fad6c0a-7a3a-56d1-5f0b-c9104ddf8955/5ad22a97-c80a-4ab8-859f-7100f696d81e.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:35"
+    },
+    {
+      "id": 26,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "9cc6fb76050abdcfb74fdd988217dd04: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/945d4187-1755-c479-0e80-501eae1fbe7e/3d2fc5d8-725d-42b4-b214-b72c26c7859d.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:38"
+    },
+    {
+      "id": 27,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "db174f733c0db0b50dd21f12a60b4bd5: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/12fad1a0-84f2-ac84-fa89-b2da54ae8c5d/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:40"
+    },
+    {
+      "id": 28,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "9f8a7ad35fef88ce49757176d59731d3: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/12fad1a0-84f2-ac84-fa89-b2da54ae8c5d/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:43"
+    },
+    {
+      "id": 29,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "4492bd9c82f1accd6a3ee97e0dc85ac6: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/b366c9b9-9980-2822-2feb-38cfdbd191e2/e74765be-3c7b-4f08-90f5-cb893d09b9af.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:46"
+    },
+    {
+      "id": 30,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "78ea849b6a9e9e48194d13c10646ac52: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/7dc58d6c-40d8-6600-3c9b-275d4d97f4a9/d9f58121-096c-452d-a7ff-509eb6faefeb.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:49"
+    },
+    {
+      "id": 31,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "b4dd339806feea1f54e52614cfd06872: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/bf352c67-09e4-7b35-5d43-db338be3da7b/c9fef6fa-2582-4d69-bb71-809c5611d6b1.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:52"
+    },
+    {
+      "id": 32,
+      "document_id": null,
+      "severity": "error",
+      "code": "queue_process_error",
+      "message": "5cc2df481378fdc7f2605de310c03d4b: 403 Client Error: Forbidden for url: https://publicfiles.fcc.gov/api/manager/download/af9d7166-7455-5b6e-a06b-a4e8e45d15e7/918127be-7139-47c5-a9d7-42db515fbe3e.pdf",
+      "resolved": 0,
+      "created_at": "2026-09-11 19:02:54"
+    }
+  ]
 }
