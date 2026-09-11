@@ -10,15 +10,14 @@ from .reconcile import upsert_order
 
 
 def _alignment(cfg, rec):
-    s = ' '.join(str(rec.get(k) or '') for k in ('advertiser','candidate')).lower()
-    if any(k in s for k in cfg.get('classification',{}).get('democratic_keywords',[])): return 'Democratic-aligned'
-    if any(k in s for k in cfg.get('classification',{}).get('republican_keywords',[])): return 'Republican-aligned'
+    s=' '.join(str(rec.get(k) or '') for k in ('advertiser','candidate')).lower()
+    if any(k in s for k in cfg.get('classification',{}).get('democratic_keywords',[])):return 'Democratic-aligned'
+    if any(k in s for k in cfg.get('classification',{}).get('republican_keywords',[])):return 'Republican-aligned'
     return cfg.get('classification',{}).get('neutral_label','unclear/issue-only')
 
 def _metadata_advertiser(note):
     if not note:return None
-    s=str(note).strip().rstrip('/').split('/')[-1].strip();s=re.sub(r'^(?:AMP\s*-\s*|MHB\s*)','',s,flags=re.I).strip()
-    return s or None
+    s=str(note).strip().rstrip('/').split('/')[-1].strip();s=re.sub(r'^(?:AMP\s*-\s*|MHB\s*)','',s,flags=re.I).strip();return s or None
 
 def _history_window(discovered_at):
     if not discovered_at:return None,None
@@ -43,8 +42,18 @@ def _download_exact(client,q,dest):
 
 def _purge_document_events(con,document_id):
     if not document_id:return
-    con.execute('DELETE FROM order_events WHERE document_id=?',(document_id,))
-    con.execute('DELETE FROM orders WHERE order_key NOT IN (SELECT DISTINCT order_key FROM order_events)')
+    con.execute('DELETE FROM order_events WHERE document_id=?',(document_id,));con.execute('DELETE FROM orders WHERE order_key NOT IN (SELECT DISTINCT order_key FROM order_events)');con.execute('UPDATE exceptions SET resolved=1 WHERE document_id=?',(document_id,));con.commit()
+
+def _cleanup_legacy_failures(con):
+    con.execute('''DELETE FROM document_queue AS old WHERE old.status='failed' AND EXISTS (
+                   SELECT 1 FROM document_queue AS good WHERE good.status IN ('reconciled','needs_visual_review')
+                   AND COALESCE(good.entity_id,'')=COALESCE(old.entity_id,'')
+                   AND COALESCE(good.file_name,'')=COALESCE(old.file_name,''))''')
+    rows=con.execute("SELECT id,message FROM exceptions WHERE resolved=0 AND code='queue_process_error'").fetchall()
+    active={r['queue_key'] for r in con.execute("SELECT queue_key FROM document_queue WHERE status IN ('failed','retry','queued','downloading')").fetchall()}
+    for e in rows:
+        key=(e['message'] or '').split(':',1)[0]
+        if key not in active:con.execute('UPDATE exceptions SET resolved=1 WHERE id=?',(e['id'],))
     con.commit()
 
 def process_queue(cfg,limit=100,reprocess=False):
@@ -53,13 +62,10 @@ def process_queue(cfg,limit=100,reprocess=False):
     rows=con.execute(f"SELECT * FROM document_queue WHERE status IN ({statuses}) ORDER BY COALESCE(discovered_at,queued_at),queued_at LIMIT ?",(int(limit),)).fetchall()
     stats={'selected':len(rows),'downloaded':0,'parsed':0,'reconciled':0,'priced':0,'visual_review':0,'failed':0,'reprocess':bool(reprocess)}
     for q in rows:
-        con.execute("UPDATE document_queue SET status='downloading',attempts=attempts+1,last_error=NULL,updated_at=CURRENT_TIMESTAMP WHERE queue_key=?",(q['queue_key'],));con.commit()
-        safe=re.sub(r'[^A-Za-z0-9._-]+','_',q['file_name'] or q['file_manager_id'] or q['queue_key'])+'.pdf';dest=tmp/safe
+        con.execute("UPDATE document_queue SET status='downloading',attempts=attempts+1,last_error=NULL,updated_at=CURRENT_TIMESTAMP WHERE queue_key=?",(q['queue_key'],));con.commit();safe=re.sub(r'[^A-Za-z0-9._-]+','_',q['file_name'] or q['file_manager_id'] or q['queue_key'])+'.pdf';dest=tmp/safe
         try:
-            local,final_url,resolved_doc=_download_exact(client,q,dest);stats['downloaded']+=1
-            resolved_folder=str(resolved_doc.folder_id or q['folder_id'] or ('url-'+hashlib.sha256(final_url.encode()).hexdigest()[:16]));resolved_file=str(resolved_doc.file_manager_id or q['file_manager_id'] or hashlib.sha256(final_url.encode()).hexdigest()[:24])
-            con.execute("UPDATE document_queue SET status='downloaded',source_url=COALESCE(source_url,?),folder_id=COALESCE(folder_id,?),file_manager_id=COALESCE(file_manager_id,?),updated_at=CURRENT_TIMESTAMP WHERE queue_key=?",(final_url,resolved_folder,resolved_file,q['queue_key']));con.commit()
-            ex=extract_pdf(local,q['file_name'] or '')
+            local,final_url,resolved_doc=_download_exact(client,q,dest);stats['downloaded']+=1;resolved_folder=str(resolved_doc.folder_id or q['folder_id'] or ('url-'+hashlib.sha256(final_url.encode()).hexdigest()[:16]));resolved_file=str(resolved_doc.file_manager_id or q['file_manager_id'] or hashlib.sha256(final_url.encode()).hexdigest()[:24])
+            con.execute("UPDATE document_queue SET status='downloaded',source_url=COALESCE(source_url,?),folder_id=COALESCE(folder_id,?),file_manager_id=COALESCE(file_manager_id,?),updated_at=CURRENT_TIMESTAMP WHERE queue_key=?",(final_url,resolved_folder,resolved_file,q['queue_key']));con.commit();ex=extract_pdf(local,q['file_name'] or '')
             olddoc=con.execute('SELECT id FROM documents WHERE folder_id=? AND file_manager_id=?',(resolved_folder,resolved_file)).fetchone()
             if reprocess and olddoc:_purge_document_events(con,olddoc['id'])
             con.execute('''INSERT INTO documents(entity_id,folder_id,file_manager_id,file_name,create_ts,last_update_ts,source_service_code,source_url,sha256,local_path,doc_type,text_chars,needs_visual_review) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(folder_id,file_manager_id) DO UPDATE SET source_url=excluded.source_url,sha256=excluded.sha256,local_path=excluded.local_path,doc_type=excluded.doc_type,text_chars=excluded.text_chars,needs_visual_review=excluded.needs_visual_review,last_update_ts=COALESCE(excluded.last_update_ts,documents.last_update_ts)''',(q['entity_id'],resolved_folder,resolved_file,q['file_name'],resolved_doc.create_ts or q['discovered_at'],resolved_doc.last_update_ts or q['discovered_at'],resolved_doc.source_service_code or q['service'],final_url,ex['sha256'],local,ex['doc_type'],ex['text_chars'],ex['needs_visual_review']))
@@ -67,9 +73,7 @@ def process_queue(cfg,limit=100,reprocess=False):
             if not rec.get('advertiser'):
                 fallback=_metadata_advertiser(q['discovery_note'])
                 if fallback:rec['advertiser']=fallback;rec['advertiser_source']='fcc_index_folder_metadata'
-            rec['partisan_alignment']=_alignment(cfg,rec)
-            cols=['advertiser','agency','order_number','contract_number','revision_number','candidate','office','election','flight_start','flight_end','gross_amount','net_amount','contract_total','invoice_total','spot_count','cancellation','partisan_alignment','extraction_confidence','amount_source','raw_json'];vals=[rec.get(c) for c in cols[:-1]]+[json.dumps(rec)]
-            con.execute('INSERT OR REPLACE INTO extracted_records(document_id,%s) VALUES(%s)'%(','.join(cols),','.join('?'*(len(cols)+1))),[did]+vals);stats['parsed']+=1
+            rec['partisan_alignment']=_alignment(cfg,rec);cols=['advertiser','agency','order_number','contract_number','revision_number','candidate','office','election','flight_start','flight_end','gross_amount','net_amount','contract_total','invoice_total','spot_count','cancellation','partisan_alignment','extraction_confidence','amount_source','raw_json'];vals=[rec.get(c) for c in cols[:-1]]+[json.dumps(rec)];con.execute('INSERT OR REPLACE INTO extracted_records(document_id,%s) VALUES(%s)'%(','.join(cols),','.join('?'*(len(cols)+1))),[did]+vals);stats['parsed']+=1
             if ex['doc_type'] in ('contract','invoice'):
                 upsert_order(con,did,q['entity_id'] or '',q['file_name'] or '',ex['doc_type'],rec,resolved_doc.create_ts or q['discovered_at']);stats['reconciled']+=1
                 if any(rec.get(k) is not None for k in ('contract_total','net_amount','gross_amount','invoice_total')):stats['priced']+=1
@@ -79,4 +83,4 @@ def process_queue(cfg,limit=100,reprocess=False):
             con.execute('UPDATE document_queue SET status=?,processed_document_id=?,last_error=NULL,updated_at=CURRENT_TIMESTAMP WHERE queue_key=?',(status,did,q['queue_key']));con.commit()
         except Exception as err:
             stats['failed']+=1;con.execute("UPDATE document_queue SET status=CASE WHEN attempts < 5 THEN 'retry' ELSE 'failed' END,last_error=?,updated_at=CURRENT_TIMESTAMP WHERE queue_key=?",(str(err),q['queue_key']));con.execute('INSERT INTO exceptions(severity,code,message) VALUES(?,?,?)',('error','queue_process_error',f"{q['queue_key']}: {err}"));con.commit()
-    return stats
+    _cleanup_legacy_failures(con);return stats
