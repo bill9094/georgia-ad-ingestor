@@ -15,7 +15,7 @@ def _spender(x):
     return x.get('committee_name') or c.get('name') or x.get('filer_name') or 'FEC independent expenditure filer'
 
 def ingest_fec_notices(cfg,since,until,state='GA',cycle=2026):
-    con=init_db(resolve(cfg,'storage.sqlite_path')); key=os.getenv('FEC_API_KEY','DEMO_KEY'); page=1; seen=inserted=0
+    con=init_db(resolve(cfg,'storage.sqlite_path')); key=os.getenv('FEC_API_KEY') or 'DEMO_KEY'; page=1; seen=inserted=0
     while True:
         params={'api_key':key,'candidate_office_state':state,'cycle':cycle,'is_notice':'true','min_filing_date':since,'max_filing_date':until,'per_page':100,'page':page,'sort':'-filing_date'}
         r=requests.get(BASE,params=params,timeout=45); r.raise_for_status(); payload=r.json(); rows=payload.get('results') or []
