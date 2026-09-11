@@ -76,27 +76,20 @@ class FCCClient:
     def _to_document(entity_id,x,source_service=None):
         return FCCDocument(str(entity_id),str(x.get('folder_id') or x.get('folderId') or ''),str(x.get('file_manager_id') or x.get('fileManagerId') or x.get('Id') or x.get('id') or ''),x.get('file_name') or x.get('fileName'),x.get('file_folder_path') or x.get('fileFolderPath'),x.get('create_ts') or x.get('createTs') or x.get('createDate'),x.get('last_update_ts') or x.get('lastUpdateTs') or x.get('lastUpdateDate'),x.get('history_status') or x.get('historyStatus'),x.get('file_status') or x.get('fileStatus'),x.get('source_service_code') or x.get('sourceServiceCode') or source_service)
     def search_tv_facilities(self,state='GA'):
-        path=f'/api/service/tv/facility/search/{state}.json'
-        r=self.get(path)
-        ctype=r.headers.get('content-type','')
-        diag={'url':r.url,'status':r.status_code,'content_type':ctype,'text_prefix':r.text[:1200]}
+        path=f'/api/service/tv/facility/search/{state}.json'; r=self.get(path); ctype=r.headers.get('content-type',''); diag={'url':r.url,'status':r.status_code,'content_type':ctype,'text_prefix':r.text[:1200]}
         try:
             payload=r.json(); diag['top_type']=type(payload).__name__; diag['top_keys']=list(payload.keys())[:50] if isinstance(payload,dict) else None
         except Exception as err:
-            self.last_discovery_diagnostic={**diag,'json_error':str(err)}
-            raise RuntimeError(f'FCC facility discovery did not return JSON: {self.last_discovery_diagnostic}')
-        rows=self._results(payload)
-        diag['parsed_rows']=len(rows)
+            self.last_discovery_diagnostic={**diag,'json_error':str(err)}; raise RuntimeError(f'FCC facility discovery did not return JSON: {self.last_discovery_diagnostic}')
+        rows=self._results(payload); diag['parsed_rows']=len(rows)
         if rows: diag['sample_keys']=list(rows[0].keys())[:50]
-        self.last_discovery_diagnostic=diag
-        return rows
+        self.last_discovery_diagnostic=diag; return rows
     def _history_page(self,entity_id,source_service=None,start_date=None,end_date=None,offset=0,use_dates=True):
         params={'entityId':entity_id,'count':self.page_size,'offset':offset}
         if source_service: params['sourceService']=source_service
         if use_dates and start_date: params['startDate']=start_date
         if use_dates and end_date: params['endDate']=end_date
-        payload=self.get('/api/manager/file/history.json',params=params).json()
-        return self._file_rows(payload), payload
+        payload=self.get('/api/manager/file/history.json',params=params).json(); return self._file_rows(payload), payload
     def file_history(self,entity_id,source_service=None,start_date=None,end_date=None)->Iterator[FCCDocument]:
         offset=0
         while True:
@@ -106,17 +99,13 @@ class FCCClient:
             if len(rows)<self.page_size: break
             offset+=len(rows)
     def find_exact_file(self,entity_id,file_name,source_service=None,start_date=None,end_date=None):
-        attempts=[(source_service,True),(None,True),(source_service,False),(None,False)]
-        tried=set()
-        diagnostics=[]
-        target=str(file_name).strip()
+        attempts=[(source_service,True),(None,True),(source_service,False),(None,False)]; tried=set(); diagnostics=[]; target=str(file_name).strip()
         for service,use_dates in attempts:
             key=(service,use_dates)
             if key in tried: continue
             tried.add(key); offset=0
             for _ in range(50):
-                try:
-                    rows,payload=self._history_page(entity_id,service,start_date,end_date,offset,use_dates)
+                try: rows,payload=self._history_page(entity_id,service,start_date,end_date,offset,use_dates)
                 except Exception as err:
                     diagnostics.append({'service':service,'dates':use_dates,'offset':offset,'error':str(err)}); break
                 diagnostics.append({'service':service,'dates':use_dates,'offset':offset,'rows':len(rows),'top_keys':list(payload.keys())[:20] if isinstance(payload,dict) else None})
@@ -128,9 +117,18 @@ class FCCClient:
                 offset+=len(rows)
         raise LookupError(f'FCC history did not resolve exact filename for entity {entity_id}: {target}; diagnostics={diagnostics[-8:]}')
     def download(self,doc,destination):
-        if not doc.folder_id or not doc.file_manager_id: raise ValueError('FCC document lacks folder/file manager id')
-        r=self.get(f'/api/manager/download/{doc.folder_id}/{doc.file_manager_id}.pdf',stream=True); dest=Path(destination); dest.parent.mkdir(parents=True,exist_ok=True)
+        if not doc.file_manager_id: raise ValueError('FCC document lacks file manager id')
+        self._wait()
+        url=f'https://files.fcc.gov/download/{doc.file_manager_id}.pdf'
+        r=self.session.get(url,timeout=self.timeout,stream=True,allow_redirects=True,headers={'User-Agent':self.session.headers.get('User-Agent','Mozilla/5.0'),'Accept':'application/pdf,*/*;q=0.8'})
+        self._last=time.monotonic(); r.raise_for_status()
+        dest=Path(destination); dest.parent.mkdir(parents=True,exist_ok=True)
+        head=b''
         with dest.open('wb') as f:
             for chunk in r.iter_content(1024*256):
-                if chunk: f.write(chunk)
+                if chunk:
+                    if not head: head=chunk[:8]
+                    f.write(chunk)
+        if not head.startswith(b'%PDF'):
+            dest.unlink(missing_ok=True); raise ValueError(f'FCC CDN response was not a PDF: {r.url} content-type={r.headers.get("content-type")}')
         return str(dest),r.url
