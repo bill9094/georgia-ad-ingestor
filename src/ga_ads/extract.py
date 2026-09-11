@@ -1,4 +1,4 @@
-import hashlib,re,subprocess,tempfile
+import hashlib,re
 from pathlib import Path
 from pypdf import PdfReader
 import pdfplumber
@@ -8,6 +8,7 @@ def sha256(path):
     with open(path,'rb') as f:
         for b in iter(lambda:f.read(1024*1024),b''): h.update(b)
     return h.hexdigest()
+
 def _text(path):
     texts=[]
     try: texts.append('\n'.join((p.extract_text() or '') for p in PdfReader(path).pages))
@@ -16,51 +17,79 @@ def _text(path):
         with pdfplumber.open(path) as pdf: texts.append('\n'.join((p.extract_text() or '') for p in pdf.pages))
     except Exception: pass
     return max(texts,key=len,default='')
+
 def _ocr(path):
     try:
         from pdf2image import convert_from_path
         import pytesseract
         return '\n'.join(pytesseract.image_to_string(im,lang='eng') for im in convert_from_path(path,dpi=220,first_page=1,last_page=8))
     except Exception: return ''
+
 def _money(s):
     if not s:return None
-    try:return float(s.replace('$','').replace(',','').strip())
+    try:return float(s.replace('$','').replace(',','').replace(' ','').strip())
     except:return None
+
 def _one(text,patterns):
     for p in patterns:
         m=re.search(p,text,re.I|re.M)
         if m:return m.group(1).strip()
+
+def _clean_party(v):
+    if not v:return None
+    s=' '.join(v.split()).strip(' :-#')
+    low=s.lower()
+    if any(x in low for x in ('http://','https://','www.','terms-and-conditions','terms and conditions')): return None
+    if '/' in s and len(s.split())<=3: return None
+    if len(s)>160: return None
+    return s
+
 def classify(name,text):
-    s=(name+' '+text[:3000]).lower()
-    if 'invoice' in s:return 'invoice'
-    if any(x in s for x in ('order contract','contract total','order total')):return 'contract'
-    if 'nab' in s:return 'nab'
-    if any(x in s for x in ('traffic instruction','traffic order')):return 'traffic'
-    if any(x in s for x in ('make-good','make good','rebate','credit memo')):return 'adjustment'
+    n=(name or '').lower().replace('-','_').replace(' ','_')
+    if 'order_contract' in n or 'contract_order' in n: return 'contract'
+    if 'invoice' in n: return 'invoice'
+    if 'nab' in n: return 'nab'
+    if 'traffic' in n: return 'traffic'
+    if any(x in n for x in ('make_good','makegood','rebate','credit')): return 'adjustment'
+    head=(text[:2500] or '').lower()
+    if re.search(r'\border\s*(?:/|and)?\s*contract\b',head) or any(x in head for x in ('contract total','order total','order gross','order net')): return 'contract'
+    if re.search(r'\binvoice\s*(?:number|no\.?|#|date|total)\b',head): return 'invoice'
+    if 'nab' in head:return 'nab'
+    if any(x in head for x in ('traffic instruction','traffic order')):return 'traffic'
+    if any(x in head for x in ('make-good','make good','rebate','credit memo')):return 'adjustment'
     return 'unknown'
+
 def extract_pdf(path,file_name=''):
     path=Path(path); text=_text(path); used_ocr=False
     if len(text.strip())<80:
         o=_ocr(path)
         if len(o)>len(text): text=o; used_ocr=True
     doc_type=classify(file_name,text)
+    advertiser=_clean_party(_one(text,[
+      r'(?:Advertiser\s*Name|Client\s*Name|Sponsor\s*Name|Advertiser|Client|Sponsor|Customer)\s*[:#-]\s*([^\n\r]+)',
+      r'(?:Agency\s*/\s*Advertiser|Advertiser\s*/\s*Agency)\s*[:#-]\s*([^\n\r]+)']))
     rec={
-      'advertiser':_one(text,[r'(?:Advertiser|Client|Sponsor)\s*[:#-]\s*([^\n\r]+)']),
-      'agency':_one(text,[r'Agency\s*[:#-]\s*([^\n\r]+)']),
-      'order_number':_one(text,[r'Order\s*(?:#|No\.?|Number)?\s*[:#-]\s*([A-Za-z0-9._-]+)']),
-      'contract_number':_one(text,[r'Contract\s*(?:#|No\.?|Number)?\s*[:#-]\s*([A-Za-z0-9._-]+)']),
-      'revision_number':_one(text,[r'Revision\s*(?:#|No\.?|Number)?\s*[:#-]\s*([A-Za-z0-9._-]+)']),
-      'candidate':_one(text,[r'Candidate\s*[:#-]\s*([^\n\r]+)']),
-      'office':_one(text,[r'Office\s*[:#-]\s*([^\n\r]+)']),
-      'election':_one(text,[r'Election\s*[:#-]\s*([^\n\r]+)']),
-      'flight_start':_one(text,[r'(?:Flight Start|Start Date)\s*[:#-]\s*([0-9/.-]+)']),
-      'flight_end':_one(text,[r'(?:Flight End|End Date)\s*[:#-]\s*([0-9/.-]+)']),
-      'gross_amount':_money(_one(text,[r'Gross(?: Amount| Total)?\s*[:#-]\s*(\$?[0-9,]+(?:\.\d{2})?)'])),
-      'net_amount':_money(_one(text,[r'Net(?: Amount| Total)?\s*[:#-]\s*(\$?[0-9,]+(?:\.\d{2})?)'])),
-      'contract_total':_money(_one(text,[r'(?:Contract Total|Order Total|Total Contract)\s*[:#-]\s*(\$?[0-9,]+(?:\.\d{2})?)'])),
-      'invoice_total':_money(_one(text,[r'Invoice Total\s*[:#-]\s*(\$?[0-9,]+(?:\.\d{2})?)'])),
-      'spot_count':None,'cancellation':1 if re.search(r'\b(cancelled|canceled|cancellation)\b',text,re.I) else 0}
-    sc=_one(text,[r'(?:Total Spots|Spot Count)\s*[:#-]\s*(\d+)']); rec['spot_count']=int(sc) if sc else None
+      'advertiser':advertiser,
+      'agency':_clean_party(_one(text,[r'(?:Agency\s*Name|Agency)\s*[:#-]\s*([^\n\r]+)'])),
+      'order_number':_one(text,[r'Order\s*(?:#|No\.?|Number)?\s*[:#-]\s*([A-Za-z0-9._-]+)',r'Order\s+(?:#|No\.?|Number)\s+([A-Za-z0-9._-]+)']),
+      'contract_number':_one(text,[r'Contract\s*(?:#|No\.?|Number)?\s*[:#-]\s*([A-Za-z0-9._-]+)',r'Contract\s+(?:#|No\.?|Number)\s+([A-Za-z0-9._-]+)']),
+      'revision_number':_one(text,[r'Revision\s*(?:#|No\.?|Number)?\s*[:#-]\s*([A-Za-z0-9._-]+)',r'Revision\s+(?:#|No\.?|Number)\s+([A-Za-z0-9._-]+)']),
+      'candidate':_clean_party(_one(text,[r'Candidate(?:\s*Name)?\s*[:#-]\s*([^\n\r]+)'])),
+      'office':_clean_party(_one(text,[r'Office\s*[:#-]\s*([^\n\r]+)'])),
+      'election':_clean_party(_one(text,[r'Election(?:\s*Type)?\s*[:#-]\s*([^\n\r]+)'])),
+      'flight_start':_one(text,[r'(?:Flight\s*Start|Start\s*Date|Contract\s*Start)\s*[:#-]?\s*([0-9]{1,2}[/-][0-9]{1,2}[/-][0-9]{2,4})']),
+      'flight_end':_one(text,[r'(?:Flight\s*End|End\s*Date|Contract\s*End)\s*[:#-]?\s*([0-9]{1,2}[/-][0-9]{1,2}[/-][0-9]{2,4})']),
+      'gross_amount':_money(_one(text,[
+        r'(?:Gross(?:\s+Amount|\s+Total)?|Order\s+Gross|Gross\s+Order)\s*[:#-]?\s*\$?\s*([0-9][0-9,]*(?:\.\d{2})?)'])),
+      'net_amount':_money(_one(text,[
+        r'(?:Net(?:\s+Amount|\s+Total)?|Order\s+Net|Net\s+Order)\s*[:#-]?\s*\$?\s*([0-9][0-9,]*(?:\.\d{2})?)'])),
+      'contract_total':_money(_one(text,[
+        r'(?:Contract\s+Total|Order\s+Total|Total\s+Contract|Contract\s+Amount|Order\s+Amount|Total\s+Order|Grand\s+Total|Total\s+Cost)\s*[:#-]?\s*\$?\s*([0-9][0-9,]*(?:\.\d{2})?)'])),
+      'invoice_total':_money(_one(text,[
+        r'(?:Invoice\s+Total|Total\s+Due|Amount\s+Due|Invoice\s+Amount|Total\s+Invoice)\s*[:#-]?\s*\$?\s*([0-9][0-9,]*(?:\.\d{2})?)'])),
+      'spot_count':None,
+      'cancellation':1 if re.search(r'\b(cancelled|canceled|cancellation)\b',text,re.I) else 0}
+    sc=_one(text,[r'(?:Total\s+Spots|Spot\s+Count|Number\s+of\s+Spots)\s*[:#-]?\s*(\d+)']); rec['spot_count']=int(sc) if sc else None
     amount=rec['invoice_total'] if doc_type=='invoice' else (rec['contract_total'] or rec['net_amount'] or rec['gross_amount'])
     conf=.35 + (.2 if rec['advertiser'] else 0)+(.2 if rec['order_number'] or rec['contract_number'] else 0)+(.25 if amount is not None else 0)
     if used_ocr: conf-=.1
