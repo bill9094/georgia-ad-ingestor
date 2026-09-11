@@ -1,0 +1,2 @@
+# One JSON object per line. Secondary/public claims are audit signals only and never enter primary totals directly.
+# Recommended fields: source_type, source_name, source_url, observed_at, advertiser, candidate, race, geography, medium, claimed_amount, amount_scope, summary, status.
