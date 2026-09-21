@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at_utc": "2026-09-21T13:32:29.366688+00:00",
+  "generated_at_utc": "2026-09-21T19:32:07.371467+00:00",
   "window": {
     "since": "2026-09-14",
     "until_exclusive": "2026-09-22"
@@ -41,7 +41,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:14",
+      "updated_at": "2026-09-21 19:31:52",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/1010b53c-4f72-47a9-ba6d-c7cf0950210d.pdf",
@@ -62,7 +62,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:31:17",
+      "updated_at": "2026-09-21 19:30:56",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
@@ -83,7 +83,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:28",
+      "updated_at": "2026-09-21 19:32:06",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/918127be-7139-47c5-a9d7-42db515fbe3e.pdf",
@@ -104,7 +104,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:31:11",
+      "updated_at": "2026-09-21 19:30:50",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/ddf7d61c-4698-4975-bd31-4c42aab32632.pdf",
@@ -125,7 +125,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:27",
+      "updated_at": "2026-09-21 19:32:05",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/c9fef6fa-2582-4d69-bb71-809c5611d6b1.pdf",
@@ -146,7 +146,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:21",
+      "updated_at": "2026-09-21 19:31:59",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
@@ -167,7 +167,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:19",
+      "updated_at": "2026-09-21 19:31:58",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/3d2fc5d8-725d-42b4-b214-b72c26c7859d.pdf",
@@ -188,7 +188,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:31:32",
+      "updated_at": "2026-09-21 19:31:11",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/b289c131-6cf9-4502-af4a-bc7a22da38ed.pdf",
@@ -209,7 +209,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:31:19",
+      "updated_at": "2026-09-21 19:30:58",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/83d7a19e-cd89-4331-8013-f84bbe1c3a9c.pdf",
@@ -230,7 +230,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:24",
+      "updated_at": "2026-09-21 19:32:02",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/d9f58121-096c-452d-a7ff-509eb6faefeb.pdf",
@@ -251,7 +251,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:22",
+      "updated_at": "2026-09-21 19:32:00",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/e74765be-3c7b-4f08-90f5-cb893d09b9af.pdf",
@@ -272,7 +272,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:17",
+      "updated_at": "2026-09-21 19:31:55",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/5ad22a97-c80a-4ab8-859f-7100f696d81e.pdf",
@@ -293,7 +293,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:15",
+      "updated_at": "2026-09-21 19:31:53",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
@@ -314,7 +314,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:14",
+      "updated_at": "2026-09-21 19:31:52",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/a3452c3d-d092-49a1-8581-e38577c3bc5e.pdf",
@@ -335,7 +335,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-09-21 13:32:16",
+      "updated_at": "2026-09-21 19:31:54",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/376a850a-6113-45ea-9a3f-4ad0ca1a7a8c.pdf",
@@ -361,7 +361,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-14 12:07:41",
-      "updated_at": "2026-09-21 13:31:07"
+      "updated_at": "2026-09-21 19:30:46"
     },
     {
       "signal_key": "226d0f81dc2345bf6f7d570824b0a7dd",
@@ -381,7 +381,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-21 13:31:07"
+      "updated_at": "2026-09-21 19:30:46"
     },
     {
       "signal_key": "e50ddf23b022f81fd4d2859ce05fcf92",
@@ -401,7 +401,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-21 13:31:07"
+      "updated_at": "2026-09-21 19:30:46"
     },
     {
       "signal_key": "db8a5779c4359aca10ed94d6a3b2b97c",
@@ -421,7 +421,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-21 13:31:07"
+      "updated_at": "2026-09-21 19:30:46"
     },
     {
       "signal_key": "5e22a510c0ab2f9f81941e287efa8abf",
@@ -441,7 +441,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-09-21 13:31:07"
+      "updated_at": "2026-09-21 19:30:46"
     }
   ],
   "unresolved_classification_entities": [
@@ -453,22 +453,22 @@
   ],
   "exceptions": [
     {
-      "id": 119,
+      "id": 121,
       "document_id": 91,
       "severity": "warning",
       "code": "amount_missing",
       "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-09-21 13:31:20"
+      "created_at": "2026-09-21 19:30:59"
     },
     {
-      "id": 120,
+      "id": 122,
       "document_id": 92,
       "severity": "warning",
       "code": "amount_missing",
       "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-09-21 13:31:21"
+      "created_at": "2026-09-21 19:31:00"
     }
   ]
 }
