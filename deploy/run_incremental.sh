@@ -16,7 +16,7 @@ python -m ga_ads.cli --config "$CONFIG" init-db
 python -m ga_ads.cli --config "$CONFIG" import-queue --path "$QUEUE_PATH"
 python -m ga_ads.cli --config "$CONFIG" import-audit --path "$AUDIT_PATH"
 python -m ga_ads.cli --config "$CONFIG" import-classification --path "$CLASSIFICATION_PATH"
-python -m ga_ads.cli --config "$CONFIG" fec-audit --since "$WEEK_SINCE" --until "$UNTIL" --state GA --cycle 2026 || true
+python -m ga_ads.cli --config "$CONFIG" fec-audit --since "$WEEK_SINCE" --until "$UNTIL" --state GA --cycle 2026
 python -m ga_ads.cli --config "$CONFIG" process-queue --limit "$QUEUE_LIMIT" $REPROCESS_ARG
 python -m ga_ads.cli --config "$CONFIG" apply-classification
 python -m ga_ads.cli --config "$CONFIG" classification-status
