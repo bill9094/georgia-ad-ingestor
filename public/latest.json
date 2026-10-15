@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
-  "generated_at_utc": "2026-10-14T22:23:11.829568+00:00",
+  "generated_at_utc": "2026-10-15T05:58:18.971565+00:00",
   "window": {
-    "since": "2026-10-07",
-    "until_exclusive": "2026-10-15"
+    "since": "2026-10-08",
+    "until_exclusive": "2026-10-16"
   },
   "pipeline": {
     "model": "systematic station scan -> exact-document queue -> deterministic download/extract/reconcile -> FEC + secondary audit -> evidence-based classification -> discrepancy loop",
@@ -41,7 +41,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:56",
+      "updated_at": "2026-10-15 05:58:04",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/1010b53c-4f72-47a9-ba6d-c7cf0950210d.pdf",
@@ -62,7 +62,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:00",
+      "updated_at": "2026-10-15 05:57:07",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
@@ -83,7 +83,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:10",
+      "updated_at": "2026-10-15 05:58:17",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/918127be-7139-47c5-a9d7-42db515fbe3e.pdf",
@@ -104,7 +104,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:21:55",
+      "updated_at": "2026-10-15 05:57:02",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/ddf7d61c-4698-4975-bd31-4c42aab32632.pdf",
@@ -125,7 +125,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:09",
+      "updated_at": "2026-10-15 05:58:17",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/c9fef6fa-2582-4d69-bb71-809c5611d6b1.pdf",
@@ -146,7 +146,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:03",
+      "updated_at": "2026-10-15 05:58:10",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
@@ -167,7 +167,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:01",
+      "updated_at": "2026-10-15 05:58:08",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/3d2fc5d8-725d-42b4-b214-b72c26c7859d.pdf",
@@ -188,7 +188,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:15",
+      "updated_at": "2026-10-15 05:57:23",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/b289c131-6cf9-4502-af4a-bc7a22da38ed.pdf",
@@ -209,7 +209,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:03",
+      "updated_at": "2026-10-15 05:57:10",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/83d7a19e-cd89-4331-8013-f84bbe1c3a9c.pdf",
@@ -230,7 +230,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:07",
+      "updated_at": "2026-10-15 05:58:14",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/d9f58121-096c-452d-a7ff-509eb6faefeb.pdf",
@@ -251,7 +251,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:04",
+      "updated_at": "2026-10-15 05:58:11",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/e74765be-3c7b-4f08-90f5-cb893d09b9af.pdf",
@@ -272,7 +272,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:23:00",
+      "updated_at": "2026-10-15 05:58:07",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/5ad22a97-c80a-4ab8-859f-7100f696d81e.pdf",
@@ -293,7 +293,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:58",
+      "updated_at": "2026-10-15 05:58:05",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
@@ -314,7 +314,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:57",
+      "updated_at": "2026-10-15 05:58:04",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/a3452c3d-d092-49a1-8581-e38577c3bc5e.pdf",
@@ -335,7 +335,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-14 22:22:59",
+      "updated_at": "2026-10-15 05:58:06",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/376a850a-6113-45ea-9a3f-4ad0ca1a7a8c.pdf",
@@ -361,7 +361,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-14 12:55:31",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7b602a45701f74e4146e468bbcc5929a",
@@ -381,7 +381,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "c8f2e80671cf9b4babb46d965ae32171",
@@ -401,7 +401,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "84c5d55ee23773606e07c675025a1dcd",
@@ -421,7 +421,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "ad17b31d152e71f53fe5b4aec433d09d",
@@ -441,7 +441,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "66c35ecb9b3d03be15e4c3af0aa24e96",
@@ -461,7 +461,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "0152ee7656724d75986035af9c29373b",
@@ -481,7 +481,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "78743ede7e5f8d004d07df07d9333e9d",
@@ -501,7 +501,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "21d227772c38f5743eb1e97fd83e26e0",
@@ -521,7 +521,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "92f5de81f1ac0ea3d1d14086dab430f7",
@@ -541,7 +541,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "9b70411848db5bc865febee4df41d6d3",
@@ -561,7 +561,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "0bcfc69061e1f59916afdf1133139890",
@@ -581,7 +581,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "49d280665fa402a4cfcbc2a918bc0619",
@@ -601,7 +601,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "bfd10b8954744ef955032b36944a8a44",
@@ -621,7 +621,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7a62e6274110731531bcaf0dd4026e35",
@@ -641,7 +641,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "fb1732057ad5e3660aa055b060bee295",
@@ -661,7 +661,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "64b726d992be75e4354f2f9755c81887",
@@ -681,7 +681,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "e5a63418f296260f8db5c02ec4c61cba",
@@ -701,7 +701,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "d2b659e2bb320ef3f6588375c4685296",
@@ -721,7 +721,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "c2a95f64692dc5ec674671d969935acf",
@@ -741,7 +741,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "5595b2296efcc917d985e8d04513be18",
@@ -761,7 +761,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "23bd517655bc4b7ec5ebae228d4ab89e",
@@ -781,7 +781,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "b7cf88936458cdeb2fb25d5ec9672b24",
@@ -801,7 +801,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "b8a8f570367e6c06f0571648374d9a78",
@@ -821,7 +821,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "d656f164ac550551271b84aba7a4a419",
@@ -841,7 +841,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "a8ed755311e6727838774a80c8720a69",
@@ -861,7 +861,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "1af24a893612fe83a961b20c8de32466",
@@ -881,7 +881,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "90fcfd4a0032cda081fae23e67631003",
@@ -901,7 +901,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "203c24f829736688706239e8dfb2e4d5",
@@ -921,7 +921,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "31e1609b69bb623b5b466b0755b38deb",
@@ -941,7 +941,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "a6d88651475b8160c8acc29aa47e898b",
@@ -961,7 +961,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "cf2df90e80823134bd98374d9cd115d3",
@@ -981,7 +981,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "00b69d6cb568fee89fe5e5525dae43c2",
@@ -1001,7 +1001,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "54c09c5136775bdb52c72b8ff21d15eb",
@@ -1021,7 +1021,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "89914350b3b7c2f33832a09d49e5f067",
@@ -1041,7 +1041,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "387d91437e0ea0ecac8c7ae25c22daa5",
@@ -1061,7 +1061,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "64345031e68872e58040fdc388f07e1f",
@@ -1081,7 +1081,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "3fa9260d4478990c0947bada777ec603",
@@ -1101,7 +1101,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "d9878ef4ff07fb94e2b3b6233fc77f9e",
@@ -1121,7 +1121,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "fb341d97c518ac87180a7e9148d1c500",
@@ -1141,7 +1141,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "ff51ff102c7d9611f48e0d96de2496cd",
@@ -1161,7 +1161,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7ff835c998d50f5bb8fbcf7c0f78ecf1",
@@ -1181,7 +1181,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "0f2d6b6fdfc4edc3b33845d7228fc5c8",
@@ -1201,7 +1201,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "b2da7305d8e8f81d4f2edf8b3a710aab",
@@ -1221,7 +1221,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "4626c503b01c43837a37713b70214dbf",
@@ -1241,7 +1241,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "d4a550eeeef853014ac06e2eae94b1c0",
@@ -1261,7 +1261,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7d9964af7be6f49b9f5bc2ac8f5928b4",
@@ -1281,7 +1281,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "fbfad2671b3b10b7a8278b12c9856468",
@@ -1301,7 +1301,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "935a81435224431789a58f67e5be2bc2",
@@ -1321,7 +1321,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "bc1f0423f8189e6d99c7fbd441ada4ad",
@@ -1341,7 +1341,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "31789b978e989c180ff9543c85e2d15b",
@@ -1361,7 +1361,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "daca27a727a09f527ab9eeb8d5aa24cb",
@@ -1381,7 +1381,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "714682b74ccf0a3d72eded11514ba15a",
@@ -1401,7 +1401,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "d4eec741b6dee6587018864300c2524f",
@@ -1421,7 +1421,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "5607f3b85cb763dd8e186ce14fcd1af0",
@@ -1441,7 +1441,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "89281a176f0844976f1f4befc4c212f3",
@@ -1461,7 +1461,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "140e07a6e02e2a7d16664bdcee4d3eb9",
@@ -1481,7 +1481,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "97facd4a901daa79b1ec4b031fdd6f49",
@@ -1501,7 +1501,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7083907b298f6b35ffbcbbcf6a544863",
@@ -1521,7 +1521,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "dfe12617014bd7668606ff8307ef0154",
@@ -1541,7 +1541,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "6ca9a7c66b9ecb673d438ea7d2231f42",
@@ -1561,7 +1561,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "07b42cfe48d305bd508d71d41ec849fc",
@@ -1581,7 +1581,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "fb6c53b878b0a85d7424c5098f8b7ed7",
@@ -1601,7 +1601,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "35fc6aa40f01a626afd14a7a635d0799",
@@ -1621,7 +1621,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "9f2a3aa6116cbd94d9658dd3a116c182",
@@ -1641,7 +1641,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "b112f7c22642506ec5011d0c097f9a69",
@@ -1661,7 +1661,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "216a170126ae20d1b340be838b743440",
@@ -1681,7 +1681,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "232dabe7bac20bfac2f916bc3f447195",
@@ -1701,7 +1701,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "34b126a665659330114322b74970437e",
@@ -1721,7 +1721,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "0e96bf977069b1dbc862e6812f863842",
@@ -1741,7 +1741,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "1f942a0a478c6e3daf3bf6a7dab77ae8",
@@ -1761,7 +1761,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "e6708dc24bd556f3062bdaf007003096",
@@ -1781,7 +1781,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7936c975e18ca263cf2b4433b1d391dc",
@@ -1801,7 +1801,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "bb42154aa05836c85b7b0d14aa468efd",
@@ -1821,7 +1821,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "e86e64764425edea92b23eca1ede94da",
@@ -1841,7 +1841,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "41b2a47398cee20fe8bd88da2b100cb9",
@@ -1861,7 +1861,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "ff8a853c8ce72a6e1a5bde8e0918fa1c",
@@ -1881,7 +1881,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "050330e5a6470a6f6cc64c1bfeac5b16",
@@ -1901,7 +1901,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "29bf700d9cb1fe850f5ed9706ebbbb5c",
@@ -1921,7 +1921,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "8f4684f38c7e4b847cfc6ab47fd973c8",
@@ -1941,7 +1941,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "581fd13c28f91539b8f946b321a61c10",
@@ -1961,7 +1961,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "ba0ac16ae8811490c6be70de107b07ba",
@@ -1981,7 +1981,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "45e12883e41c27efbefe83f0ba476bdf",
@@ -2001,7 +2001,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "9cff8f60e49d7997b40264c44928dddd",
@@ -2021,7 +2021,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "3f05fdfa7a74962ebbc5a87829a2976a",
@@ -2041,7 +2041,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "e53f1c41e6c887273d4dd24abf06dd74",
@@ -2061,7 +2061,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "9ac8875bff0f2f5e3b783bcb347edc14",
@@ -2081,7 +2081,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "7cf37c464546df3478636a8ac6a76599",
@@ -2101,7 +2101,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "4c0b8ff1e943f1478703e2e03dfaad03",
@@ -2121,7 +2121,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "d52df221c16ea7e3c1b22f29c88aea5f",
@@ -2141,7 +2141,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-14 22:21:51"
+      "updated_at": "2026-10-15 05:56:59"
     },
     {
       "signal_key": "fc34a0f0bf6f71c8ad71c59a0df84648",
@@ -2941,7 +2941,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-14 12:07:41",
-      "updated_at": "2026-10-14 22:21:50"
+      "updated_at": "2026-10-15 05:56:57"
     },
     {
       "signal_key": "226d0f81dc2345bf6f7d570824b0a7dd",
@@ -2961,7 +2961,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-14 22:21:50"
+      "updated_at": "2026-10-15 05:56:57"
     },
     {
       "signal_key": "e50ddf23b022f81fd4d2859ce05fcf92",
@@ -2981,7 +2981,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-14 22:21:50"
+      "updated_at": "2026-10-15 05:56:57"
     },
     {
       "signal_key": "db8a5779c4359aca10ed94d6a3b2b97c",
@@ -3001,7 +3001,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-14 22:21:50"
+      "updated_at": "2026-10-15 05:56:57"
     },
     {
       "signal_key": "5e22a510c0ab2f9f81941e287efa8abf",
@@ -3021,7 +3021,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-14 22:21:50"
+      "updated_at": "2026-10-15 05:56:57"
     }
   ],
   "unresolved_classification_entities": [
@@ -3033,22 +3033,22 @@
   ],
   "exceptions": [
     {
-      "id": 293,
+      "id": 295,
       "document_id": 91,
       "severity": "warning",
       "code": "amount_missing",
       "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-10-14 22:22:03"
+      "created_at": "2026-10-15 05:57:10"
     },
     {
-      "id": 294,
+      "id": 296,
       "document_id": 92,
       "severity": "warning",
       "code": "amount_missing",
       "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-10-14 22:22:05"
+      "created_at": "2026-10-15 05:57:12"
     }
   ]
 }
