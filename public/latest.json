@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at_utc": "2026-10-16T05:57:12.741769+00:00",
+  "generated_at_utc": "2026-10-16T12:32:11.342799+00:00",
   "window": {
     "since": "2026-10-09",
     "until_exclusive": "2026-10-17"
@@ -11,7 +11,7 @@
       "needs_visual_review": 2,
       "reconciled": 18
     },
-    "unresolved_audit_signals": 139,
+    "unresolved_audit_signals": 155,
     "unresolved_classification_entities": 1
   },
   "accounting": {
@@ -41,7 +41,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:56:58",
+      "updated_at": "2026-10-16 12:31:55",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/1010b53c-4f72-47a9-ba6d-c7cf0950210d.pdf",
@@ -62,7 +62,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:56:09",
+      "updated_at": "2026-10-16 12:30:59",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/0642d15d-3537-45cd-99bd-1548956f96f4.pdf",
@@ -83,7 +83,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:11",
+      "updated_at": "2026-10-16 12:32:10",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/918127be-7139-47c5-a9d7-42db515fbe3e.pdf",
@@ -104,7 +104,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:56:04",
+      "updated_at": "2026-10-16 12:30:53",
       "callsign": null,
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/ddf7d61c-4698-4975-bd31-4c42aab32632.pdf",
@@ -125,7 +125,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:11",
+      "updated_at": "2026-10-16 12:32:09",
       "callsign": "891102MH",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/c9fef6fa-2582-4d69-bb71-809c5611d6b1.pdf",
@@ -146,7 +146,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:05",
+      "updated_at": "2026-10-16 12:32:02",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/138be747-1fc0-482c-aad4-3efd1ddfa6f5.pdf",
@@ -167,7 +167,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:03",
+      "updated_at": "2026-10-16 12:32:01",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/3d2fc5d8-725d-42b4-b214-b72c26c7859d.pdf",
@@ -188,7 +188,7 @@
       "partisan_alignment": "unclear/issue-only",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:56:23",
+      "updated_at": "2026-10-16 12:31:14",
       "callsign": "DWYLE",
       "dma": "Atlanta",
       "source_url": "https://files.fcc.gov/download/b289c131-6cf9-4502-af4a-bc7a22da38ed.pdf",
@@ -209,7 +209,7 @@
       "partisan_alignment": "Democratic-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:56:11",
+      "updated_at": "2026-10-16 12:31:01",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/83d7a19e-cd89-4331-8013-f84bbe1c3a9c.pdf",
@@ -230,7 +230,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:08",
+      "updated_at": "2026-10-16 12:32:06",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/d9f58121-096c-452d-a7ff-509eb6faefeb.pdf",
@@ -251,7 +251,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:06",
+      "updated_at": "2026-10-16 12:32:04",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/e74765be-3c7b-4f08-90f5-cb893d09b9af.pdf",
@@ -272,7 +272,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:01",
+      "updated_at": "2026-10-16 12:31:59",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/5ad22a97-c80a-4ab8-859f-7100f696d81e.pdf",
@@ -293,7 +293,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:00",
+      "updated_at": "2026-10-16 12:31:57",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/4b9e92bc-8474-4ce0-8a73-ca33c669e30d.pdf",
@@ -314,7 +314,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:56:59",
+      "updated_at": "2026-10-16 12:31:56",
       "callsign": null,
       "dma": "Augusta",
       "source_url": "https://files.fcc.gov/download/a3452c3d-d092-49a1-8581-e38577c3bc5e.pdf",
@@ -335,7 +335,7 @@
       "partisan_alignment": "Republican-aligned",
       "status": "active",
       "confidence": 0.8,
-      "updated_at": "2026-10-16 05:57:00",
+      "updated_at": "2026-10-16 12:31:58",
       "callsign": null,
       "dma": "Savannah",
       "source_url": "https://files.fcc.gov/download/376a850a-6113-45ea-9a3f-4ad0ca1a7a8c.pdf",
@@ -343,6 +343,326 @@
     }
   ],
   "unresolved_audit_signals": [
+    {
+      "signal_key": "a42dfc462401ecdd0cd4b782755d2342",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "D.R.I.V.E. - DEM, REP, IND VOTER ED (THE PAC OF THE INT'L BRHD OF TEAMSTERS)",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909571323",
+      "observed_at": "2026-10-15",
+      "advertiser": "D.R.I.V.E. - DEM, REP, IND VOTER ED (THE PAC OF THE INT'L BRHD OF TEAMSTERS)",
+      "candidate": "OSSOFF, T. JONATHAN",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "DIGITAL ADS",
+      "claimed_amount": 193.22,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: D.R.I.V.E. - DEM, REP, IND VOTER ED (THE PAC OF THE INT'L BRHD OF TEAMSTERS) support OSSOFF, T. JONATHAN; purpose: DIGITAL ADS",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "a26d66ed31cb8b03839f90f0bcd7b807",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "SENATE CONSERVATIVES ACTION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159908876729",
+      "observed_at": "2026-10-15",
+      "advertiser": "SENATE CONSERVATIVES ACTION",
+      "candidate": "COLLINS, MICHAEL A JR",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "IE-COLLINS-DIGITAL ADVERTISING",
+      "claimed_amount": 5000.0,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: SENATE CONSERVATIVES ACTION support COLLINS, MICHAEL A JR; purpose: IE-COLLINS-DIGITAL ADVERTISING",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "72936b3471764e8409eeca6d78b3c0e3",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "INDIVISIBLE ACTION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159914423230",
+      "observed_at": "2026-10-15",
+      "advertiser": "INDIVISIBLE ACTION",
+      "candidate": "OSSOFF, T. JONATHAN",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "TELEPHONE CALLS",
+      "claimed_amount": 805.52,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: INDIVISIBLE ACTION support OSSOFF, T. JONATHAN; purpose: TELEPHONE CALLS",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "d5c3de90d3cd3514064b81438d538611",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NO GOING BACK PAC INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909289464",
+      "observed_at": "2026-10-15",
+      "advertiser": "NO GOING BACK PAC INC.",
+      "candidate": "COLLINS, MICHAEL A JR",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "TEXT MESSAGES",
+      "claimed_amount": 20576.04,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NO GOING BACK PAC INC. support COLLINS, MICHAEL A JR; purpose: TEXT MESSAGES",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "1cc2ad90da55d1afd3c61cc070d1fab4",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "J STREET ACTION FUND",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909218511",
+      "observed_at": "2026-10-15",
+      "advertiser": "J STREET ACTION FUND",
+      "candidate": "COLLINS, MICHAEL JR",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "DIGITAL MEDIA & PRODUCTION SERVICES",
+      "claimed_amount": 470000.0,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: J STREET ACTION FUND oppose COLLINS, MICHAEL JR; purpose: DIGITAL MEDIA & PRODUCTION SERVICES",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "f76aedb1152e30a2ef744e9c7aef9adc",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "INDIVISIBLE ACTION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159914423229",
+      "observed_at": "2026-10-15",
+      "advertiser": "INDIVISIBLE ACTION",
+      "candidate": "OSSOFF, T. JONATHAN",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "TELEPHONE CALLS (ESTIMATE)",
+      "claimed_amount": 884.8,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: INDIVISIBLE ACTION support OSSOFF, T. JONATHAN; purpose: TELEPHONE CALLS (ESTIMATE)",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "09bbe5f1a3b02b36bbbb8e7d68963e47",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NRA VICTORY FUND, INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909632213",
+      "observed_at": "2026-10-15",
+      "advertiser": "NRA VICTORY FUND, INC.",
+      "candidate": "KINGSTON, JAMES MORRIS",
+      "race": "H GA",
+      "geography": "GA",
+      "medium": "PRINTING / POSTAGE",
+      "claimed_amount": 44.59,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NRA VICTORY FUND, INC. support KINGSTON, JAMES MORRIS; purpose: PRINTING / POSTAGE",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "ca1bfe61089ba555e8c7c2f7cb2f0f2a",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NRA VICTORY FUND, INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909632212",
+      "observed_at": "2026-10-15",
+      "advertiser": "NRA VICTORY FUND, INC.",
+      "candidate": "KINGSTON, JAMES MORRIS",
+      "race": "H GA",
+      "geography": "GA",
+      "medium": "CREATIVE DESIGN SERVICES",
+      "claimed_amount": 23.08,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NRA VICTORY FUND, INC. support KINGSTON, JAMES MORRIS; purpose: CREATIVE DESIGN SERVICES",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "f052322696d07eda73b45fc3fc99170e",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NRA VICTORY FUND, INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909632211",
+      "observed_at": "2026-10-15",
+      "advertiser": "NRA VICTORY FUND, INC.",
+      "candidate": "COLLINS, MICHAEL A. JR.",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "PRINTING / POSTAGE",
+      "claimed_amount": 155.2,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NRA VICTORY FUND, INC. support COLLINS, MICHAEL A. JR.; purpose: PRINTING / POSTAGE",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "a74f4010c1f180a7e5f0f307995997ff",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NRA VICTORY FUND, INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159909632211",
+      "observed_at": "2026-10-15",
+      "advertiser": "NRA VICTORY FUND, INC.",
+      "candidate": "COLLINS, MICHAEL A. JR.",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "CREATIVE DESIGN SERVICES",
+      "claimed_amount": 23.07,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NRA VICTORY FUND, INC. support COLLINS, MICHAEL A. JR.; purpose: CREATIVE DESIGN SERVICES",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "4c889fcfb9587f68bcedac2415517beb",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "SENATE CONSERVATIVES ACTION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159908876729",
+      "observed_at": "2026-10-15",
+      "advertiser": "SENATE CONSERVATIVES ACTION",
+      "candidate": "COLLINS, MICHAEL A JR",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "IE-COLLINS-DIGITAL ADVERTISING",
+      "claimed_amount": 2500.0,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: SENATE CONSERVATIVES ACTION support COLLINS, MICHAEL A JR; purpose: IE-COLLINS-DIGITAL ADVERTISING",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "7c67c1c012692ee63e7d1de14ba96bb8",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "SENATE CONSERVATIVES ACTION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159908876728",
+      "observed_at": "2026-10-15",
+      "advertiser": "SENATE CONSERVATIVES ACTION",
+      "candidate": "COLLINS, MICHAEL A JR",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "IE-COLLINS-DIGITAL ADVERTISING",
+      "claimed_amount": 2587.5,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: SENATE CONSERVATIVES ACTION support COLLINS, MICHAEL A JR; purpose: IE-COLLINS-DIGITAL ADVERTISING",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "a6c7b1d5b4296030e0d0c24e7af2bb1e",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "SENATE CONSERVATIVES ACTION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610159908876728",
+      "observed_at": "2026-10-15",
+      "advertiser": "SENATE CONSERVATIVES ACTION",
+      "candidate": "COLLINS, MICHAEL A JR",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "IE-COLLINS-DIRECT MAIL PRODUCTION",
+      "claimed_amount": 3068.28,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 24 Schedule E notice: SENATE CONSERVATIVES ACTION support COLLINS, MICHAEL A JR; purpose: IE-COLLINS-DIRECT MAIL PRODUCTION",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "6a56f3ff3e9f556cc4ea93caef79614a",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NRA VICTORY FUND, INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610149908818543",
+      "observed_at": "2026-10-14",
+      "advertiser": "NRA VICTORY FUND, INC.",
+      "candidate": "KINGSTON, JAMES MORRIS",
+      "race": "H GA",
+      "geography": "GA",
+      "medium": "IN KIND OFFSET: STAFF TIME / BUS RENTAL",
+      "claimed_amount": 256.8,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NRA VICTORY FUND, INC. support KINGSTON, JAMES MORRIS; purpose: IN KIND OFFSET: STAFF TIME / BUS RENTAL",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "5ddf891ce30f3684fae4a5da2ddd7699",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "NRA VICTORY FUND, INC.",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610149908818542",
+      "observed_at": "2026-10-14",
+      "advertiser": "NRA VICTORY FUND, INC.",
+      "candidate": "COLLINS, MICHAEL A. JR.",
+      "race": "S GA",
+      "geography": "GA",
+      "medium": "IN KIND OFFSET: STAFF TIME / BUS RENTAL",
+      "claimed_amount": 1101.29,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: NRA VICTORY FUND, INC. support COLLINS, MICHAEL A. JR.; purpose: IN KIND OFFSET: STAFF TIME / BUS RENTAL",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
+    {
+      "signal_key": "92f31d1d81e7e0b6db450f663826463e",
+      "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
+      "source_name": "AMERICAN MISSION",
+      "source_url": "https://docquery.fec.gov/cgi-bin/fecimg/?202610149908819723",
+      "observed_at": "2026-10-14",
+      "advertiser": "AMERICAN MISSION",
+      "candidate": "JACK, BRIAN",
+      "race": "H GA",
+      "geography": "GA",
+      "medium": "PRINTING / POSTAGE",
+      "claimed_amount": 203509.14,
+      "amount_scope": "individual Schedule E 24/48-hour notice expenditure",
+      "summary": "FEC 48 Schedule E notice: AMERICAN MISSION support JACK, BRIAN; purpose: PRINTING / POSTAGE",
+      "status": "unresolved",
+      "matched_order_key": null,
+      "resolution_note": null,
+      "created_at": "2026-10-16 12:30:50",
+      "updated_at": "2026-10-16 12:30:50"
+    },
     {
       "signal_key": "5f75254a0a0e4a08cf8afe6b8d4651f4",
       "source_type": "PRIMARY \u2014 FEC IE / disclosed expenditure",
@@ -361,7 +681,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-15 12:42:31",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "4ccc4b099ff59fa99e8fa99e0f48078f",
@@ -381,7 +701,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-15 12:42:31",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "bd15c5793b5dce49a23fddc96398125f",
@@ -401,7 +721,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-15 12:42:31",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "df0452e813b6c81b4040f77b8b6a8da8",
@@ -421,7 +741,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-15 12:42:31",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "c06b0d793c19f7fd556990412c05faf2",
@@ -441,7 +761,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-15 12:42:31",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "894e9c6e2c3bc50b455f57070dc0834d",
@@ -461,7 +781,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-14 12:55:31",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "7b602a45701f74e4146e468bbcc5929a",
@@ -481,7 +801,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "c8f2e80671cf9b4babb46d965ae32171",
@@ -501,7 +821,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "84c5d55ee23773606e07c675025a1dcd",
@@ -521,7 +841,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "ad17b31d152e71f53fe5b4aec433d09d",
@@ -541,7 +861,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "66c35ecb9b3d03be15e4c3af0aa24e96",
@@ -561,7 +881,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "0152ee7656724d75986035af9c29373b",
@@ -581,7 +901,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "78743ede7e5f8d004d07df07d9333e9d",
@@ -601,7 +921,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "21d227772c38f5743eb1e97fd83e26e0",
@@ -621,7 +941,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "92f5de81f1ac0ea3d1d14086dab430f7",
@@ -641,7 +961,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "9b70411848db5bc865febee4df41d6d3",
@@ -661,7 +981,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "0bcfc69061e1f59916afdf1133139890",
@@ -681,7 +1001,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "49d280665fa402a4cfcbc2a918bc0619",
@@ -701,7 +1021,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "bfd10b8954744ef955032b36944a8a44",
@@ -721,7 +1041,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "7a62e6274110731531bcaf0dd4026e35",
@@ -741,7 +1061,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "fb1732057ad5e3660aa055b060bee295",
@@ -761,7 +1081,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "64b726d992be75e4354f2f9755c81887",
@@ -781,7 +1101,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "e5a63418f296260f8db5c02ec4c61cba",
@@ -801,7 +1121,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "d2b659e2bb320ef3f6588375c4685296",
@@ -821,7 +1141,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "c2a95f64692dc5ec674671d969935acf",
@@ -841,7 +1161,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "5595b2296efcc917d985e8d04513be18",
@@ -861,7 +1181,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "23bd517655bc4b7ec5ebae228d4ab89e",
@@ -881,7 +1201,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "b7cf88936458cdeb2fb25d5ec9672b24",
@@ -901,7 +1221,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "b8a8f570367e6c06f0571648374d9a78",
@@ -921,7 +1241,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "d656f164ac550551271b84aba7a4a419",
@@ -941,7 +1261,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "a8ed755311e6727838774a80c8720a69",
@@ -961,7 +1281,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "1af24a893612fe83a961b20c8de32466",
@@ -981,7 +1301,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "90fcfd4a0032cda081fae23e67631003",
@@ -1001,7 +1321,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-10-13 19:01:38",
-      "updated_at": "2026-10-16 05:56:01"
+      "updated_at": "2026-10-16 12:30:50"
     },
     {
       "signal_key": "203c24f829736688706239e8dfb2e4d5",
@@ -3041,7 +3361,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-14 12:07:41",
-      "updated_at": "2026-10-16 05:56:00"
+      "updated_at": "2026-10-16 12:30:49"
     },
     {
       "signal_key": "226d0f81dc2345bf6f7d570824b0a7dd",
@@ -3061,7 +3381,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-16 05:56:00"
+      "updated_at": "2026-10-16 12:30:49"
     },
     {
       "signal_key": "e50ddf23b022f81fd4d2859ce05fcf92",
@@ -3081,7 +3401,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-16 05:56:00"
+      "updated_at": "2026-10-16 12:30:49"
     },
     {
       "signal_key": "db8a5779c4359aca10ed94d6a3b2b97c",
@@ -3101,7 +3421,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-16 05:56:00"
+      "updated_at": "2026-10-16 12:30:49"
     },
     {
       "signal_key": "5e22a510c0ab2f9f81941e287efa8abf",
@@ -3121,7 +3441,7 @@
       "matched_order_key": null,
       "resolution_note": null,
       "created_at": "2026-09-11 18:59:44",
-      "updated_at": "2026-10-16 05:56:00"
+      "updated_at": "2026-10-16 12:30:49"
     }
   ],
   "unresolved_classification_entities": [
@@ -3133,22 +3453,22 @@
   ],
   "exceptions": [
     {
-      "id": 303,
+      "id": 305,
       "document_id": 91,
       "severity": "warning",
       "code": "amount_missing",
       "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-10-16 05:56:12"
+      "created_at": "2026-10-16 12:31:01"
     },
     {
-      "id": 304,
+      "id": 306,
       "document_id": 92,
       "severity": "warning",
       "code": "amount_missing",
       "message": "Primary queued document requires review",
       "resolved": 0,
-      "created_at": "2026-10-16 05:56:13"
+      "created_at": "2026-10-16 12:31:03"
     }
   ]
 }
